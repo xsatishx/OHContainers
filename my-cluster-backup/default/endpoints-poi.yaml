@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-10T07:25:59Z"
+  creationTimestamp: "2021-03-10T07:00:35Z"
+  labels:
+    app: poi
+    env: OpenHack
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:env: {}
+      f:subsets: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:25:57Z"
+  name: poi
+  namespace: default
+subsets:
+- addresses:
+  - ip: 10.2.1.108
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: poi-5f44f84b97-kdltd
+      namespace: default
+      resourceVersion: "12887"
+      uid: 44ae2a08-2658-4e74-a1b2-64ba0d5bf9c6
+  - ip: 10.2.1.115
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: poi-5f44f84b97-cmn6t
+      namespace: default
+      resourceVersion: "12883"
+      uid: 2c2301a8-3d53-4134-80ed-f087869df02b
+  - ip: 10.2.1.123
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: poi-5f44f84b97-bjrsg
+      namespace: default
+      resourceVersion: "12868"
+      uid: a29832d9-916e-4693-8395-2d4436ffeb54
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP

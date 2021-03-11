@@ -1,0 +1,35 @@
+apiVersion: coordination.k8s.io/v1beta1
+kind: Lease
+metadata:
+  creationTimestamp: "2021-03-11T01:35:29Z"
+  managedFields:
+  - apiVersion: coordination.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"f7fe3d84-9dfa-49f1-8d9c-b325124d36eb"}:
+            .: {}
+            f:apiVersion: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:holderIdentity: {}
+        f:leaseDurationSeconds: {}
+        f:renewTime: {}
+    manager: kubelet
+    operation: Update
+    time: "2021-03-11T01:35:29Z"
+  name: aks-openhacknp-38943226-vmss000001
+  namespace: kube-node-lease
+  ownerReferences:
+  - apiVersion: v1
+    kind: Node
+    name: aks-openhacknp-38943226-vmss000001
+    uid: f7fe3d84-9dfa-49f1-8d9c-b325124d36eb
+spec:
+  holderIdentity: aks-openhacknp-38943226-vmss000001
+  leaseDurationSeconds: 40
+  renewTime: "2021-03-11T08:40:23.402932Z"

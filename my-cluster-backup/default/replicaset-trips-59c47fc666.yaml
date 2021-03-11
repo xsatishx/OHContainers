@@ -1,0 +1,144 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: "3"
+    deployment.kubernetes.io/max-replicas: "3"
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2021-03-10T06:50:40Z"
+  labels:
+    app: trips
+    env: OpenHack
+    pod-template-hash: 59c47fc666
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:deployment.kubernetes.io/desired-replicas: {}
+          f:deployment.kubernetes.io/max-replicas: {}
+          f:deployment.kubernetes.io/revision: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:env: {}
+          f:pod-template-hash: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"afc33e7d-42ab-4ffc-9a89-138670af7123"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:replicas: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:app: {}
+            f:env: {}
+            f:pod-template-hash: {}
+        f:template:
+          f:metadata:
+            f:labels:
+              .: {}
+              f:app: {}
+              f:env: {}
+              f:pod-template-hash: {}
+          f:spec:
+            f:containers:
+              k:{"name":"trips"}:
+                .: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:resources: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/mnt/secrets-store"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:readOnly: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes:
+              .: {}
+              k:{"name":"secrets-store-inline"}:
+                .: {}
+                f:csi:
+                  .: {}
+                  f:driver: {}
+                  f:nodePublishSecretRef:
+                    .: {}
+                    f:name: {}
+                  f:readOnly: {}
+                  f:volumeAttributes:
+                    .: {}
+                    f:secretProviderClass: {}
+                f:name: {}
+      f:status:
+        f:observedGeneration: {}
+        f:replicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:21:34Z"
+  name: trips-59c47fc666
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: trips
+    uid: afc33e7d-42ab-4ffc-9a89-138670af7123
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+      app: trips
+      env: OpenHack
+      pod-template-hash: 59c47fc666
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: trips
+        env: OpenHack
+        pod-template-hash: 59c47fc666
+    spec:
+      containers:
+      - image: registryjya8643.azurecr.io/trips:1.0
+        imagePullPolicy: IfNotPresent
+        name: trips
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /mnt/secrets-store
+          name: secrets-store-inline
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - csi:
+          driver: secrets-store.csi.k8s.io
+          nodePublishSecretRef:
+            name: secrets-store-creds
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: aks-keyvault-openhack
+        name: secrets-store-inline

@@ -1,0 +1,96 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1beta1
+endpoints:
+- addresses:
+  - 10.2.1.127
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: trips-7d8f96746d-bqqff
+    namespace: default
+    resourceVersion: "11988"
+    uid: d0c22356-4d90-436a-8fd2-3b48b61d3d91
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+- addresses:
+  - 10.2.1.114
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: trips-7d8f96746d-5d7sh
+    namespace: default
+    resourceVersion: "11992"
+    uid: 883a7c40-8e2c-4c1b-a2f6-107149505e3e
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+- addresses:
+  - 10.2.1.113
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: trips-7d8f96746d-b9js4
+    namespace: default
+    resourceVersion: "11998"
+    uid: 7730067d-c428-4aed-a343-830629e8b970
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-10T07:21:48Z"
+  creationTimestamp: "2021-03-10T07:00:49Z"
+  generateName: trips-
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: trips
+  managedFields:
+  - apiVersion: discovery.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:addressType: {}
+      f:endpoints: {}
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:endpointslice.kubernetes.io/managed-by: {}
+          f:kubernetes.io/service-name: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"a0181617-58e0-41ca-9b31-73bfbdb84eca"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:ports: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:21:48Z"
+  name: trips-jbnmh
+  namespace: default
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: trips
+    uid: a0181617-58e0-41ca-9b31-73bfbdb84eca
+ports:
+- name: http
+  port: 80
+  protocol: TCP

@@ -1,0 +1,35 @@
+apiVersion: coordination.k8s.io/v1beta1
+kind: Lease
+metadata:
+  creationTimestamp: "2021-03-10T06:01:22Z"
+  managedFields:
+  - apiVersion: coordination.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"9c6a7684-1be6-4653-a7f7-c5fffeee7962"}:
+            .: {}
+            f:apiVersion: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:holderIdentity: {}
+        f:leaseDurationSeconds: {}
+        f:renewTime: {}
+    manager: kubelet
+    operation: Update
+    time: "2021-03-10T06:01:22Z"
+  name: aks-agentpool-38943226-vmss000000
+  namespace: kube-node-lease
+  ownerReferences:
+  - apiVersion: v1
+    kind: Node
+    name: aks-agentpool-38943226-vmss000000
+    uid: 9c6a7684-1be6-4653-a7f7-c5fffeee7962
+spec:
+  holderIdentity: aks-agentpool-38943226-vmss000000
+  leaseDurationSeconds: 40
+  renewTime: "2021-03-11T08:40:28.991635Z"

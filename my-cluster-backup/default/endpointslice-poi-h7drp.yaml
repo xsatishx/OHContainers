@@ -1,0 +1,96 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1beta1
+endpoints:
+- addresses:
+  - 10.2.1.123
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: poi-5f44f84b97-bjrsg
+    namespace: default
+    resourceVersion: "12868"
+    uid: a29832d9-916e-4693-8395-2d4436ffeb54
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+- addresses:
+  - 10.2.1.115
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: poi-5f44f84b97-cmn6t
+    namespace: default
+    resourceVersion: "12883"
+    uid: 2c2301a8-3d53-4134-80ed-f087869df02b
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+- addresses:
+  - 10.2.1.108
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: poi-5f44f84b97-kdltd
+    namespace: default
+    resourceVersion: "12887"
+    uid: 44ae2a08-2658-4e74-a1b2-64ba0d5bf9c6
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-10T07:25:59Z"
+  creationTimestamp: "2021-03-10T07:00:35Z"
+  generateName: poi-
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: poi
+  managedFields:
+  - apiVersion: discovery.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:addressType: {}
+      f:endpoints: {}
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:endpointslice.kubernetes.io/managed-by: {}
+          f:kubernetes.io/service-name: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"26c20085-0bbf-43d2-96da-d1b7bc91b0ce"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:ports: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:25:57Z"
+  name: poi-h7drp
+  namespace: default
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: poi
+    uid: 26c20085-0bbf-43d2-96da-d1b7bc91b0ce
+ports:
+- name: http
+  port: 80
+  protocol: TCP

@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-10T07:21:48Z"
+  creationTimestamp: "2021-03-10T07:00:49Z"
+  labels:
+    app: trips
+    env: OpenHack
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:env: {}
+      f:subsets: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:21:48Z"
+  name: trips
+  namespace: default
+subsets:
+- addresses:
+  - ip: 10.2.1.113
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: trips-7d8f96746d-b9js4
+      namespace: default
+      resourceVersion: "11998"
+      uid: 7730067d-c428-4aed-a343-830629e8b970
+  - ip: 10.2.1.114
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: trips-7d8f96746d-5d7sh
+      namespace: default
+      resourceVersion: "11992"
+      uid: 883a7c40-8e2c-4c1b-a2f6-107149505e3e
+  - ip: 10.2.1.127
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: trips-7d8f96746d-bqqff
+      namespace: default
+      resourceVersion: "11988"
+      uid: d0c22356-4d90-436a-8fd2-3b48b61d3d91
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP

@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"NetworkPolicy","metadata":{"annotations":{},"labels":{"addonmanager.kubernetes.io/mode":"Reconcile"},"name":"tunnelfront","namespace":"kube-system"},"spec":{"egress":[{}],"podSelector":{"matchLabels":{"component":"tunnel"}},"policyTypes":["Egress"]}}
+  creationTimestamp: "2021-03-10T06:00:47Z"
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+  managedFields:
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:labels:
+          .: {}
+          f:addonmanager.kubernetes.io/mode: {}
+      f:spec:
+        f:egress: {}
+        f:podSelector:
+          f:matchLabels:
+            .: {}
+            f:component: {}
+        f:policyTypes: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-03-10T06:00:47Z"
+  name: tunnelfront
+  namespace: kube-system
+spec:
+  egress:
+  - {}
+  podSelector:
+    matchLabels:
+      component: tunnel
+  policyTypes:
+  - Egress

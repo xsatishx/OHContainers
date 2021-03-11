@@ -1,0 +1,245 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2021-03-10T06:01:12Z"
+  generateName: azure-cni-networkmonitor-
+  labels:
+    component: azure-cni-networkmonitor
+    controller-revision-hash: 64fbfdb6b4
+    pod-template-generation: "1"
+    tier: node
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:component: {}
+          f:controller-revision-hash: {}
+          f:pod-template-generation: {}
+          f:tier: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"fe62610b-5db1-4709-a264-0ffa5bb66d40"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:affinity:
+          .: {}
+          f:nodeAffinity:
+            .: {}
+            f:requiredDuringSchedulingIgnoredDuringExecution:
+              .: {}
+              f:nodeSelectorTerms: {}
+        f:containers:
+          k:{"name":"azure-cni-networkmonitor"}:
+            .: {}
+            f:env:
+              .: {}
+              k:{"name":"HOSTNAME"}:
+                .: {}
+                f:name: {}
+                f:valueFrom:
+                  .: {}
+                  f:fieldRef:
+                    .: {}
+                    f:apiVersion: {}
+                    f:fieldPath: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources: {}
+            f:securityContext:
+              .: {}
+              f:privileged: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+            f:volumeMounts:
+              .: {}
+              k:{"mountPath":"/var/log"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+              k:{"mountPath":"/var/run"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:hostNetwork: {}
+        f:nodeSelector:
+          .: {}
+          f:beta.kubernetes.io/os: {}
+        f:priorityClassName: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:terminationGracePeriodSeconds: {}
+        f:tolerations: {}
+        f:volumes:
+          .: {}
+          k:{"name":"ebtables-rule-repo"}:
+            .: {}
+            f:hostPath:
+              .: {}
+              f:path: {}
+              f:type: {}
+            f:name: {}
+          k:{"name":"log"}:
+            .: {}
+            f:hostPath:
+              .: {}
+              f:path: {}
+              f:type: {}
+            f:name: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T06:01:12Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"ContainersReady"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Initialized"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Ready"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+        f:containerStatuses: {}
+        f:hostIP: {}
+        f:phase: {}
+        f:podIP: {}
+        f:podIPs:
+          .: {}
+          k:{"ip":"10.2.1.97"}:
+            .: {}
+            f:ip: {}
+        f:startTime: {}
+    manager: kubelet
+    operation: Update
+    time: "2021-03-10T06:01:39Z"
+  name: azure-cni-networkmonitor-blhsc
+  namespace: kube-system
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: DaemonSet
+    name: azure-cni-networkmonitor
+    uid: fe62610b-5db1-4709-a264-0ffa5bb66d40
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchFields:
+          - key: metadata.name
+            operator: In
+            values:
+            - aks-agentpool-38943226-vmss000000
+  containers:
+  - env:
+    - name: HOSTNAME
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: spec.nodeName
+    - name: KUBERNETES_PORT_443_TCP_ADDR
+      value: ohnewakscluster-dns-1d16279e.hcp.eastasia.azmk8s.io
+    - name: KUBERNETES_PORT
+      value: tcp://ohnewakscluster-dns-1d16279e.hcp.eastasia.azmk8s.io:443
+    - name: KUBERNETES_PORT_443_TCP
+      value: tcp://ohnewakscluster-dns-1d16279e.hcp.eastasia.azmk8s.io:443
+    - name: KUBERNETES_SERVICE_HOST
+      value: ohnewakscluster-dns-1d16279e.hcp.eastasia.azmk8s.io
+    image: mcr.microsoft.com/containernetworking/networkmonitor:v1.1.8
+    imagePullPolicy: IfNotPresent
+    name: azure-cni-networkmonitor
+    resources: {}
+    securityContext:
+      privileged: true
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run
+      name: ebtables-rule-repo
+    - mountPath: /var/log
+      name: log
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-wzdpj
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  hostNetwork: true
+  nodeName: aks-agentpool-38943226-vmss000000
+  nodeSelector:
+    beta.kubernetes.io/os: linux
+  priority: 2000001000
+  priorityClassName: system-node-critical
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - key: CriticalAddonsOnly
+    operator: Exists
+  - effect: NoExecute
+    operator: Exists
+  - effect: NoSchedule
+    operator: Exists
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+  - effect: NoSchedule
+    key: node.kubernetes.io/disk-pressure
+    operator: Exists
+  - effect: NoSchedule
+    key: node.kubernetes.io/memory-pressure
+    operator: Exists
+  - effect: NoSchedule
+    key: node.kubernetes.io/pid-pressure
+    operator: Exists
+  - effect: NoSchedule
+    key: node.kubernetes.io/unschedulable
+    operator: Exists
+  - effect: NoSchedule
+    key: node.kubernetes.io/network-unavailable
+    operator: Exists
+  volumes:
+  - hostPath:
+      path: /var/log
+      type: ""
+    name: log
+  - hostPath:
+      path: /var/run/
+      type: ""
+    name: ebtables-rule-repo
+  - name: default-token-wzdpj
+    secret:
+      defaultMode: 420
+      secretName: default-token-wzdpj

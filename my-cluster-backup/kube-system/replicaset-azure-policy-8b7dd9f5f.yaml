@@ -1,0 +1,295 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: "1"
+    deployment.kubernetes.io/max-replicas: "2"
+    deployment.kubernetes.io/revision: "1"
+  creationTimestamp: "2021-03-11T05:15:02Z"
+  labels:
+    app: azure-policy
+    kubernetes.azure.com/managedby: aks
+    pod-template-hash: 8b7dd9f5f
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:deployment.kubernetes.io/desired-replicas: {}
+          f:deployment.kubernetes.io/max-replicas: {}
+          f:deployment.kubernetes.io/revision: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:kubernetes.azure.com/managedby: {}
+          f:pod-template-hash: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"66edfe13-bf9c-4134-ba5a-df6c1a282413"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:replicas: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:app: {}
+            f:pod-template-hash: {}
+        f:template:
+          f:metadata:
+            f:annotations:
+              .: {}
+              f:cluster-autoscaler.kubernetes.io/safe-to-evict: {}
+            f:labels:
+              .: {}
+              f:app: {}
+              f:kubernetes.azure.com/managedby: {}
+              f:pod-template-hash: {}
+            f:name: {}
+          f:spec:
+            f:affinity:
+              .: {}
+              f:nodeAffinity:
+                .: {}
+                f:preferredDuringSchedulingIgnoredDuringExecution: {}
+                f:requiredDuringSchedulingIgnoredDuringExecution:
+                  .: {}
+                  f:nodeSelectorTerms: {}
+            f:containers:
+              k:{"name":"azure-policy"}:
+                .: {}
+                f:env:
+                  .: {}
+                  k:{"name":"ACS_CREDENTIAL_LOCATION"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"AUDIT_INTERVAL"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"CURRENT_IMAGE"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"DATAPLANE_ENDPOINT"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"FULL_SCAN_EXCLUSION_LIST"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"K8S_POLICY_PREFIX"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"POD_NAME"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:fieldRef:
+                        .: {}
+                        f:apiVersion: {}
+                        f:fieldPath: {}
+                  k:{"name":"POD_NAMESPACE"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:fieldRef:
+                        .: {}
+                        f:apiVersion: {}
+                        f:fieldPath: {}
+                  k:{"name":"REFRESH_INTERVAL"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"RESOURCE_ID"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"RESOURCE_TYPE"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"TELEMETRY_HEARTBEAT_INTERVAL"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"USER_ASSIGNED_IDENTITY"}:
+                    .: {}
+                    f:name: {}
+                  k:{"name":"WEBHOOK_EXCLUSION_LIST"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:resources:
+                  .: {}
+                  f:limits:
+                    .: {}
+                    f:cpu: {}
+                    f:memory: {}
+                  f:requests:
+                    .: {}
+                    f:cpu: {}
+                    f:memory: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/etc/acs/azure.json"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:readOnly: {}
+            f:dnsPolicy: {}
+            f:priorityClassName: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:serviceAccount: {}
+            f:serviceAccountName: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes:
+              .: {}
+              k:{"name":"acs-credential"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+      f:status:
+        f:availableReplicas: {}
+        f:fullyLabeledReplicas: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-11T05:15:05Z"
+  name: azure-policy-8b7dd9f5f
+  namespace: kube-system
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: azure-policy
+    uid: 66edfe13-bf9c-4134-ba5a-df6c1a282413
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: azure-policy
+      pod-template-hash: 8b7dd9f5f
+  template:
+    metadata:
+      annotations:
+        cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
+      creationTimestamp: null
+      labels:
+        app: azure-policy
+        kubernetes.azure.com/managedby: aks
+        pod-template-hash: 8b7dd9f5f
+      name: azure-policy
+    spec:
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - preference:
+              matchExpressions:
+              - key: kubernetes.azure.com/mode
+                operator: In
+                values:
+                - system
+            weight: 100
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.azure.com/cluster
+                operator: Exists
+              - key: type
+                operator: NotIn
+                values:
+                - virtual-kubelet
+              - key: beta.kubernetes.io/os
+                operator: In
+                values:
+                - linux
+      containers:
+      - env:
+        - name: K8S_POLICY_PREFIX
+          value: azurepolicy
+        - name: RESOURCE_ID
+          value: /subscriptions/442f0218-2057-41f9-8c35-1dfcbc4691c0/resourceGroups/ohnewAKSCluster-rg/providers/Microsoft.ContainerService/managedClusters/ohnewAKSCluster
+        - name: RESOURCE_TYPE
+          value: Microsoft.ContainerService/managedClusters
+        - name: DATAPLANE_ENDPOINT
+          value: https://gov-prod-policy-data.trafficmanager.net
+        - name: ACS_CREDENTIAL_LOCATION
+          value: /etc/acs/azure.json
+        - name: REFRESH_INTERVAL
+          value: 15m
+        - name: AUDIT_INTERVAL
+          value: 15m
+        - name: TELEMETRY_HEARTBEAT_INTERVAL
+          value: 15m
+        - name: USER_ASSIGNED_IDENTITY
+        - name: CURRENT_IMAGE
+          value: mcr.microsoft.com/azure-policy/policy-kubernetes-addon-prod:prod_20201015.1
+        - name: FULL_SCAN_EXCLUSION_LIST
+          value: kube-system,gatekeeper-system,aks-periscope
+        - name: WEBHOOK_EXCLUSION_LIST
+          value: kube-system,gatekeeper-system,aks-periscope
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.name
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        image: mcr.microsoft.com/azure-policy/policy-kubernetes-addon-prod:prod_20201015.1
+        imagePullPolicy: IfNotPresent
+        name: azure-policy
+        resources:
+          limits:
+            cpu: 100m
+            memory: 200Mi
+          requests:
+            cpu: 30m
+            memory: 50Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /etc/acs/azure.json
+          name: acs-credential
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      priorityClassName: system-node-critical
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: azure-policy
+      serviceAccountName: azure-policy
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - hostPath:
+          path: /etc/kubernetes/azure.json
+          type: File
+        name: acs-credential

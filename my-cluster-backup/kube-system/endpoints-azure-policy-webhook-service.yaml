@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-11T05:15:04Z"
+  creationTimestamp: "2021-03-11T05:15:02Z"
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:labels:
+          .: {}
+          f:addonmanager.kubernetes.io/mode: {}
+      f:subsets: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-11T05:15:04Z"
+  name: azure-policy-webhook-service
+  namespace: kube-system
+subsets:
+- addresses:
+  - ip: 10.2.1.157
+    nodeName: aks-openhacknp-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: azure-policy-webhook-578df58bcd-qc4gs
+      namespace: kube-system
+      resourceVersion: "203416"
+      uid: 45019d8d-e5a2-432f-affd-c0e17b13bf5d
+  ports:
+  - name: webhook
+    port: 9449
+    protocol: TCP

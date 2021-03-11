@@ -1,0 +1,68 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1beta1
+endpoints:
+- addresses:
+  - 10.2.1.100
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: metrics-server-58fdc875d5-zxq8m
+    namespace: kube-system
+    resourceVersion: "567"
+    uid: 16ab2fec-e845-483c-863e-6e759aab1e96
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-10T06:02:02Z"
+  creationTimestamp: "2021-03-10T06:00:46Z"
+  generateName: metrics-server-
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: metrics-server
+  managedFields:
+  - apiVersion: discovery.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:addressType: {}
+      f:endpoints: {}
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:endpointslice.kubernetes.io/managed-by: {}
+          f:kubernetes.io/service-name: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"f4d59e23-c036-4022-940a-310ceeea6767"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:ports: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T06:01:43Z"
+  name: metrics-server-jbmcq
+  namespace: kube-system
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: metrics-server
+    uid: f4d59e23-c036-4022-940a-310ceeea6767
+ports:
+- name: ""
+  port: 443
+  protocol: TCP

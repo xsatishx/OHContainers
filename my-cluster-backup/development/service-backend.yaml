@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2021-03-11T07:54:16Z"
+  labels:
+    app: webapp
+    role: backend
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app: {}
+          f:role: {}
+      f:spec:
+        f:ports:
+          .: {}
+          k:{"port":80,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:app: {}
+          f:role: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl-run
+    operation: Update
+    time: "2021-03-11T07:54:16Z"
+  name: backend
+  namespace: development
+spec:
+  clusterIP: 10.0.212.183
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: webapp
+    role: backend
+  sessionAffinity: None
+  type: ClusterIP

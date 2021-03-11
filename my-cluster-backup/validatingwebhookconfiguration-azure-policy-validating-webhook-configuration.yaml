@@ -1,0 +1,88 @@
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: ValidatingWebhookConfiguration
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"admissionregistration.k8s.io/v1beta1","kind":"ValidatingWebhookConfiguration","metadata":{"annotations":{},"labels":{"addonmanager.kubernetes.io/mode":"Reconcile"},"name":"azure-policy-validating-webhook-configuration"},"webhooks":[{"clientConfig":{"caBundle":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUZBVENDQXVtZ0F3SUJBZ0lSQUpuelJ3SmtDYlh5THFRZS9FZHZXM0l3RFFZSktvWklodmNOQVFFTEJRQXcKR1RFWE1CVUdBMVVFQXhNT1lYcDFjbVZ3YjJ4cFkza3RZMkV3SUJjTk1qRXdNekV4TURVd05EQTNXaGdQTWpBMQpNVEF6TVRFd05URTBNRGRhTUJreEZ6QVZCZ05WQkFNVERtRjZkWEpsY0c5c2FXTjVMV05oTUlJQ0lqQU5CZ2txCmhraUc5dzBCQVFFRkFBT0NBZzhBTUlJQ0NnS0NBZ0VBd0twcUdoSEdRN1hPcFZCeWh6Q3pnTk4vNDVTd3c0YmYKelQ3aVdhK1FuY2NrcFl1R01zRUhOUjh3T05FSFR6Y1U0WUR5WVJFRU9GaXNJUTRQKzYrM25sS1FNMmZKVzFXSQp4YTRxSmlkZnREOWk2OTNPTVpySlJSc2dIcjVaQzFzQmtMU040TWJ1THZKZUljeC9adFZKaXg2ZzdsbVJYZEI2CkVqbmNFeHE4aEtFK2xjcjd6c1VVZm4zaGNLemoyZFY1QnNEUi9FZEgzTUdhYnE2SUtiTjVGU0F0K1Z0dzY3QXUKbFNGWDdnSU83NTExTUZndEtDY3BjTnA2Vjc4aVRicmdENjd1T1BJYUZGb1R4Rm82MHdvZ1d3V0dvNUtoRXNpTAp0YU8zMDZzRXQ2SnA5VEhGWE1oeWtyREwzeDZLTzg3a2JwTTI0WGZ1WkkrR2t1SXV5VGpHRXNtbEZsS3FmekptCk0xR21kTjJjeU0xNThzdExEUEV0aXBFZ1pOcEJTM05tUlNxZ0hhQmtPTmNzWXNvYWJBK0VhdGJQV0M0ajVyUzcKUXpUNnlpQ3JzVUZNbEZ2eDBOc0Z3SFFycGpPbmhkK2VFWnE2OFBVTlNRVkFtNUcrS3h2OVBLT1VkcWZ0aklaQgp4N1cvYlBTM1kvMVJSc1pBNmpyTnkzNHgrdjY0RlRjelRoQXVkOURpVDVJN2E4eUJ3dXV3R1VNRVlRVEV0cW9PCmNtZVQxL2diVXVnWGRUUnhhOEphbko2RGFHdTdsVE90eHk4TzFBSWN6MWs3UGowRUUrVWo3RzlyYVNsN1hNR3AKdFVuemJuVWQyeFNSWkdUamZJU3QrQVIwZ3ZCNi80UERsZU8vQmxBc2xqanJBVG1OV1BWVDl4WHdIaUVQdEgxaAo4RkF5UElocDNmc0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdLa01BOEdBMVVkRXdFQi93UUZNQU1CCkFmOHdIUVlEVlIwT0JCWUVGUGp3TmQ3TTRsdVJJUWhQRFJNVWI5U01GVXRLTUEwR0NTcUdTSWIzRFFFQkN3VUEKQTRJQ0FRQUIrdmtYdG5WK3VQWXVhWXhVUmM3Qkl5VkJ0RTZKTEowT3d4ekU3Y3hIRmdpaGpOazA5SnpJQkpETwpDS2JEV2tNTXBRS3pVdjVVby8wYWt1WkRMZklab2xFSGY5bWhvRlZvQ3Qwd25RMW11TkY4cjZUamZwVmpRdDQ3CmQ1WVJRYmRMYlRjNy9ubkt4Z2MreG4yWlQ1V0F0aTQxcDRQSGorY29TVVBINEN0dmV3Y2R0aDJ0RjdZUDVDamwKVVFxOHFGVTVqNGt4YmJhVllsRU8yazNyTGxDWU1IaXFqekU1UHlEeGtCWkRYRWdGajU2UWY0TFp6RVVUQTl3awo2SW1XQlljZ3hTWGsxbG04Y0h6QUZLQnZKcGpxazNkOTVNL0ZhMDZrZGF4TUl3eDU1QVJTOWZVS0gyT3FvSmhvCnQ0ZzRYRFhCaVFjVkJ0cWZkdWk0U3AzclVvcEVpcjJiTE4xRmpjMFZ1UWtsMmd0OGRIYmFibW5WdTl5Zlh4Y1IKRGVwaEdsQmpCNmpOcXU1cFZFZFR3bzIyS05reXJDaC9IMXdFZ0lESTVYRXpGUVV3Z3dZM3p6WklFLzh5WklVMgpQZEtndTEyR0ZFVWZWbVZXb0pzWnVvTXdxSGZzRGhEVTl2Sng1Wm9sQmJZSzBGbzFYbFFwTWR4aXo4c2JSaUdoCk1HbzBCbWtUQTZ5bTAwV1JSWi8yaFBleWd3ZTh2Rm5VOFNkMko3SkxKM0l3M0VWVmtJVnJVZjk2b3V2OGxFUVEKbkZWZWNVSy9ic0N2VFJMSk9LS1pZYU14ellpVmt3N3FkNlJEVE9tNVQxRGZuMEdUcDJGNCt1dHJVS1hKWWdSNgoyUXJiU251anpFb1dBRDRIL3dqMk41aVU3MnE2VmJCZGpoVUxLM0dmY1I0aVA1K3Nqdz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K","service":{"name":"azure-policy-webhook-service","namespace":"kube-system","path":"/validategatekeeperresources"}},"failurePolicy":"Ignore","name":"byovalidation.policy.azure.com","rules":[{"apiGroups":["templates.gatekeeper.sh","constraints.gatekeeper.sh"],"apiVersions":["v1beta1"],"operations":["CREATE","UPDATE"],"resources":["*"]}],"sideEffects":"None","timeoutSeconds":5}]}
+  creationTimestamp: "2021-03-11T05:15:02Z"
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+  managedFields:
+  - apiVersion: admissionregistration.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:webhooks:
+        k:{"name":"byovalidation.policy.azure.com"}:
+          f:namespaceSelector:
+            f:matchExpressions: {}
+    manager: admissionsenforcer
+    operation: Update
+    time: "2021-03-11T05:15:02Z"
+  - apiVersion: admissionregistration.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:labels:
+          .: {}
+          f:addonmanager.kubernetes.io/mode: {}
+      f:webhooks:
+        .: {}
+        k:{"name":"byovalidation.policy.azure.com"}:
+          .: {}
+          f:admissionReviewVersions: {}
+          f:clientConfig:
+            .: {}
+            f:caBundle: {}
+            f:service:
+              .: {}
+              f:name: {}
+              f:namespace: {}
+              f:path: {}
+              f:port: {}
+          f:failurePolicy: {}
+          f:matchPolicy: {}
+          f:name: {}
+          f:namespaceSelector: {}
+          f:objectSelector: {}
+          f:rules: {}
+          f:sideEffects: {}
+          f:timeoutSeconds: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-03-11T05:15:02Z"
+  name: azure-policy-validating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1beta1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUZBVENDQXVtZ0F3SUJBZ0lSQUpuelJ3SmtDYlh5THFRZS9FZHZXM0l3RFFZSktvWklodmNOQVFFTEJRQXcKR1RFWE1CVUdBMVVFQXhNT1lYcDFjbVZ3YjJ4cFkza3RZMkV3SUJjTk1qRXdNekV4TURVd05EQTNXaGdQTWpBMQpNVEF6TVRFd05URTBNRGRhTUJreEZ6QVZCZ05WQkFNVERtRjZkWEpsY0c5c2FXTjVMV05oTUlJQ0lqQU5CZ2txCmhraUc5dzBCQVFFRkFBT0NBZzhBTUlJQ0NnS0NBZ0VBd0twcUdoSEdRN1hPcFZCeWh6Q3pnTk4vNDVTd3c0YmYKelQ3aVdhK1FuY2NrcFl1R01zRUhOUjh3T05FSFR6Y1U0WUR5WVJFRU9GaXNJUTRQKzYrM25sS1FNMmZKVzFXSQp4YTRxSmlkZnREOWk2OTNPTVpySlJSc2dIcjVaQzFzQmtMU040TWJ1THZKZUljeC9adFZKaXg2ZzdsbVJYZEI2CkVqbmNFeHE4aEtFK2xjcjd6c1VVZm4zaGNLemoyZFY1QnNEUi9FZEgzTUdhYnE2SUtiTjVGU0F0K1Z0dzY3QXUKbFNGWDdnSU83NTExTUZndEtDY3BjTnA2Vjc4aVRicmdENjd1T1BJYUZGb1R4Rm82MHdvZ1d3V0dvNUtoRXNpTAp0YU8zMDZzRXQ2SnA5VEhGWE1oeWtyREwzeDZLTzg3a2JwTTI0WGZ1WkkrR2t1SXV5VGpHRXNtbEZsS3FmekptCk0xR21kTjJjeU0xNThzdExEUEV0aXBFZ1pOcEJTM05tUlNxZ0hhQmtPTmNzWXNvYWJBK0VhdGJQV0M0ajVyUzcKUXpUNnlpQ3JzVUZNbEZ2eDBOc0Z3SFFycGpPbmhkK2VFWnE2OFBVTlNRVkFtNUcrS3h2OVBLT1VkcWZ0aklaQgp4N1cvYlBTM1kvMVJSc1pBNmpyTnkzNHgrdjY0RlRjelRoQXVkOURpVDVJN2E4eUJ3dXV3R1VNRVlRVEV0cW9PCmNtZVQxL2diVXVnWGRUUnhhOEphbko2RGFHdTdsVE90eHk4TzFBSWN6MWs3UGowRUUrVWo3RzlyYVNsN1hNR3AKdFVuemJuVWQyeFNSWkdUamZJU3QrQVIwZ3ZCNi80UERsZU8vQmxBc2xqanJBVG1OV1BWVDl4WHdIaUVQdEgxaAo4RkF5UElocDNmc0NBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdLa01BOEdBMVVkRXdFQi93UUZNQU1CCkFmOHdIUVlEVlIwT0JCWUVGUGp3TmQ3TTRsdVJJUWhQRFJNVWI5U01GVXRLTUEwR0NTcUdTSWIzRFFFQkN3VUEKQTRJQ0FRQUIrdmtYdG5WK3VQWXVhWXhVUmM3Qkl5VkJ0RTZKTEowT3d4ekU3Y3hIRmdpaGpOazA5SnpJQkpETwpDS2JEV2tNTXBRS3pVdjVVby8wYWt1WkRMZklab2xFSGY5bWhvRlZvQ3Qwd25RMW11TkY4cjZUamZwVmpRdDQ3CmQ1WVJRYmRMYlRjNy9ubkt4Z2MreG4yWlQ1V0F0aTQxcDRQSGorY29TVVBINEN0dmV3Y2R0aDJ0RjdZUDVDamwKVVFxOHFGVTVqNGt4YmJhVllsRU8yazNyTGxDWU1IaXFqekU1UHlEeGtCWkRYRWdGajU2UWY0TFp6RVVUQTl3awo2SW1XQlljZ3hTWGsxbG04Y0h6QUZLQnZKcGpxazNkOTVNL0ZhMDZrZGF4TUl3eDU1QVJTOWZVS0gyT3FvSmhvCnQ0ZzRYRFhCaVFjVkJ0cWZkdWk0U3AzclVvcEVpcjJiTE4xRmpjMFZ1UWtsMmd0OGRIYmFibW5WdTl5Zlh4Y1IKRGVwaEdsQmpCNmpOcXU1cFZFZFR3bzIyS05reXJDaC9IMXdFZ0lESTVYRXpGUVV3Z3dZM3p6WklFLzh5WklVMgpQZEtndTEyR0ZFVWZWbVZXb0pzWnVvTXdxSGZzRGhEVTl2Sng1Wm9sQmJZSzBGbzFYbFFwTWR4aXo4c2JSaUdoCk1HbzBCbWtUQTZ5bTAwV1JSWi8yaFBleWd3ZTh2Rm5VOFNkMko3SkxKM0l3M0VWVmtJVnJVZjk2b3V2OGxFUVEKbkZWZWNVSy9ic0N2VFJMSk9LS1pZYU14ellpVmt3N3FkNlJEVE9tNVQxRGZuMEdUcDJGNCt1dHJVS1hKWWdSNgoyUXJiU251anpFb1dBRDRIL3dqMk41aVU3MnE2VmJCZGpoVUxLM0dmY1I0aVA1K3Nqdz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    service:
+      name: azure-policy-webhook-service
+      namespace: kube-system
+      path: /validategatekeeperresources
+      port: 443
+  failurePolicy: Ignore
+  matchPolicy: Exact
+  name: byovalidation.policy.azure.com
+  namespaceSelector:
+    matchExpressions:
+    - key: control-plane
+      operator: DoesNotExist
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - templates.gatekeeper.sh
+    - constraints.gatekeeper.sh
+    apiVersions:
+    - v1beta1
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - '*'
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 5

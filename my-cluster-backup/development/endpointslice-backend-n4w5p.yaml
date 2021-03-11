@@ -1,0 +1,68 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1beta1
+endpoints:
+- addresses:
+  - 10.2.1.160
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: backend
+    namespace: development
+    resourceVersion: "228216"
+    uid: 05213992-29f8-4307-81fb-18c8e8245536
+  topology:
+    kubernetes.io/hostname: aks-openhacknp-38943226-vmss000001
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-11T07:54:25Z"
+  creationTimestamp: "2021-03-11T07:54:16Z"
+  generateName: backend-
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: backend
+  managedFields:
+  - apiVersion: discovery.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:addressType: {}
+      f:endpoints: {}
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:endpointslice.kubernetes.io/managed-by: {}
+          f:kubernetes.io/service-name: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"63fa2aa6-f1cf-4dc6-bb07-92a93a7436b2"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:ports: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-11T07:54:25Z"
+  name: backend-n4w5p
+  namespace: development
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: backend
+    uid: 63fa2aa6-f1cf-4dc6-bb07-92a93a7436b2
+ports:
+- name: ""
+  port: 80
+  protocol: TCP

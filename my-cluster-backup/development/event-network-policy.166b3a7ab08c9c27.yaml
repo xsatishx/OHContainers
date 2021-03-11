@@ -1,0 +1,44 @@
+apiVersion: events.k8s.io/v1beta1
+deprecatedCount: 1
+deprecatedFirstTimestamp: "2021-03-11T07:53:09Z"
+deprecatedLastTimestamp: "2021-03-11T07:53:09Z"
+deprecatedSource:
+  component: default-scheduler
+eventTime: null
+kind: Event
+metadata:
+  creationTimestamp: "2021-03-11T07:53:09Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:count: {}
+      f:firstTimestamp: {}
+      f:involvedObject:
+        f:apiVersion: {}
+        f:kind: {}
+        f:name: {}
+        f:namespace: {}
+        f:resourceVersion: {}
+        f:uid: {}
+      f:lastTimestamp: {}
+      f:message: {}
+      f:reason: {}
+      f:source:
+        f:component: {}
+      f:type: {}
+    manager: kube-scheduler
+    operation: Update
+    time: "2021-03-11T07:53:09Z"
+  name: network-policy.166b3a7ab08c9c27
+  namespace: development
+note: Successfully assigned development/network-policy to aks-openhacknp-38943226-vmss000001
+reason: Scheduled
+regarding:
+  apiVersion: v1
+  kind: Pod
+  name: network-policy
+  namespace: development
+  resourceVersion: "227999"
+  uid: 208916f8-3fc8-4d32-9dd0-669650c2da72
+type: Normal

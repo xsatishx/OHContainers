@@ -1,0 +1,156 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  annotations:
+    deployment.kubernetes.io/desired-replicas: "3"
+    deployment.kubernetes.io/max-replicas: "3"
+    deployment.kubernetes.io/revision: "2"
+  creationTimestamp: "2021-03-10T07:25:52Z"
+  labels:
+    app: poi
+    env: OpenHack
+    pod-template-hash: 5f44f84b97
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:deployment.kubernetes.io/desired-replicas: {}
+          f:deployment.kubernetes.io/max-replicas: {}
+          f:deployment.kubernetes.io/revision: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:env: {}
+          f:pod-template-hash: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"c1357935-2948-44ab-9275-91dfe1b20ae9"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:replicas: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:app: {}
+            f:env: {}
+            f:pod-template-hash: {}
+        f:template:
+          f:metadata:
+            f:labels:
+              .: {}
+              f:app: {}
+              f:env: {}
+              f:pod-template-hash: {}
+          f:spec:
+            f:containers:
+              k:{"name":"poi"}:
+                .: {}
+                f:env:
+                  .: {}
+                  k:{"name":"ASPNETCORE_ENVIRONMENT"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:resources: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"/secrets"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:readOnly: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes:
+              .: {}
+              k:{"name":"secrets-store-inline"}:
+                .: {}
+                f:csi:
+                  .: {}
+                  f:driver: {}
+                  f:nodePublishSecretRef:
+                    .: {}
+                    f:name: {}
+                  f:readOnly: {}
+                  f:volumeAttributes:
+                    .: {}
+                    f:secretProviderClass: {}
+                f:name: {}
+      f:status:
+        f:availableReplicas: {}
+        f:fullyLabeledReplicas: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:25:57Z"
+  name: poi-5f44f84b97
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Deployment
+    name: poi
+    uid: c1357935-2948-44ab-9275-91dfe1b20ae9
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: poi
+      env: OpenHack
+      pod-template-hash: 5f44f84b97
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: poi
+        env: OpenHack
+        pod-template-hash: 5f44f84b97
+    spec:
+      containers:
+      - env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Local
+        image: registryjya8643.azurecr.io/poi:1.0
+        imagePullPolicy: IfNotPresent
+        name: poi
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /secrets
+          name: secrets-store-inline
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - csi:
+          driver: secrets-store.csi.k8s.io
+          nodePublishSecretRef:
+            name: secrets-store-creds
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: aks-keyvault-openhack
+        name: secrets-store-inline

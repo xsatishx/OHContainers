@@ -1,0 +1,96 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1beta1
+endpoints:
+- addresses:
+  - 10.2.1.119
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: user-java-c498df978-gvdhl
+    namespace: default
+    resourceVersion: "12604"
+    uid: 3800f3f2-ca18-43d7-91c9-8acf676f9cf2
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+- addresses:
+  - 10.2.1.112
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: user-java-c498df978-kdsqv
+    namespace: default
+    resourceVersion: "12600"
+    uid: 1bd94b3c-c8de-4973-b753-1ec041d375b7
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+- addresses:
+  - 10.2.1.109
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: user-java-c498df978-46wlz
+    namespace: default
+    resourceVersion: "12607"
+    uid: 35550997-b162-4d0b-8fc8-5430e8dbbbf1
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-10T07:26:40Z"
+  creationTimestamp: "2021-03-10T07:26:40Z"
+  generateName: user-java-
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: user-java
+  managedFields:
+  - apiVersion: discovery.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:addressType: {}
+      f:endpoints: {}
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:endpointslice.kubernetes.io/managed-by: {}
+          f:kubernetes.io/service-name: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"d38c896f-234d-4ea8-8820-b31ec14460c8"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:ports: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:26:40Z"
+  name: user-java-kfv5k
+  namespace: default
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: user-java
+    uid: d38c896f-234d-4ea8-8820-b31ec14460c8
+ports:
+- name: http
+  port: 80
+  protocol: TCP

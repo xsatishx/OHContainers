@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-10T07:06:45Z"
+  creationTimestamp: "2021-03-10T07:06:19Z"
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: nginx-ingress
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/version: 0.44.0
+    helm.sh/chart: ingress-nginx-3.24.0
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:labels:
+          .: {}
+          f:app.kubernetes.io/component: {}
+          f:app.kubernetes.io/instance: {}
+          f:app.kubernetes.io/managed-by: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/version: {}
+          f:helm.sh/chart: {}
+      f:subsets: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:06:44Z"
+  name: nginx-ingress-ingress-nginx-controller-admission
+  namespace: ingress-basic
+subsets:
+- addresses:
+  - ip: 10.2.1.116
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: nginx-ingress-ingress-nginx-controller-6878b74896-qdwt6
+      namespace: ingress-basic
+      resourceVersion: "9686"
+      uid: 93af0cbd-70eb-49ce-bea1-562473d8111c
+  - ip: 10.2.1.122
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: nginx-ingress-ingress-nginx-controller-6878b74896-c8p4p
+      namespace: ingress-basic
+      resourceVersion: "9696"
+      uid: 44f42856-8526-4829-ac4f-4853e44b0206
+  ports:
+  - name: https-webhook
+    port: 8443
+    protocol: TCP

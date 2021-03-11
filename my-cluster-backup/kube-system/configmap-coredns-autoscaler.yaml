@@ -1,0 +1,18 @@
+apiVersion: v1
+data:
+  ladder: '{"coresToReplicas":[[1,2],[512,3],[1024,4],[2048,5]],"nodesToReplicas":[[1,2],[8,3],[16,4],[32,5]]}'
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2021-03-10T06:01:43Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        .: {}
+        f:ladder: {}
+    manager: cluster-proportional-autoscaler
+    operation: Update
+    time: "2021-03-10T06:01:43Z"
+  name: coredns-autoscaler
+  namespace: kube-system

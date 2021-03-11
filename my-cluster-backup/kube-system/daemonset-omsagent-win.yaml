@@ -1,0 +1,351 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  annotations:
+    deprecated.daemonset.template.generation: "1"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"DaemonSet","metadata":{"annotations":{},"labels":{"addonmanager.kubernetes.io/mode":"Reconcile","component":"oms-agent-win","kubernetes.io/cluster-service":"true","tier":"node-win"},"name":"omsagent-win","namespace":"kube-system"},"spec":{"selector":{"matchLabels":{"component":"oms-agent-win","tier":"node-win"}},"template":{"metadata":{"annotations":{"WSID":"YTViMjk1NTYtZDEzNC00ZDM5LWI4MmUtNzg0ZTYzYjBlM2Y4","agentVersion":"1.10.0.1","dockerProviderVersion":"13.0.0-0","schema-versions":"v1"},"labels":{"component":"oms-agent-win","kubernetes.azure.com/managedby":"aks","tier":"node-win"}},"spec":{"affinity":{"nodeAffinity":{"requiredDuringSchedulingIgnoredDuringExecution":{"nodeSelectorTerms":[{"matchExpressions":[{"key":"kubernetes.azure.com/cluster","operator":"Exists"},{"key":"beta.kubernetes.io/os","operator":"In","values":["windows"]},{"key":"kubernetes.io/role","operator":"In","values":["agent"]},{"key":"type","operator":"NotIn","values":["virtual-kubelet"]}]}]}}},"containers":[{"env":[{"name":"AKS_RESOURCE_ID","value":"/subscriptions/442f0218-2057-41f9-8c35-1dfcbc4691c0/resourceGroups/ohnewAKSCluster-rg/providers/Microsoft.ContainerService/managedClusters/ohnewAKSCluster"},{"name":"AKS_REGION","value":"eastasia"},{"name":"CONTROLLER_TYPE","value":"DaemonSet"},{"name":"HOSTNAME","valueFrom":{"fieldRef":{"fieldPath":"spec.nodeName"}}},{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}}],"image":"mcr.microsoft.com/azuremonitor/containerinsights/ciprod:win-ciprod02232021","imagePullPolicy":"IfNotPresent","livenessProbe":{"exec":{"command":["cmd","/c","C:\\opt\\omsagentwindows\\scripts\\cmd\\livenessProbe.cmd"]},"initialDelaySeconds":180,"periodSeconds":60,"timeoutSeconds":15},"name":"omsagent-win","resources":{"limits":{"cpu":"200m","memory":"600Mi"}},"securityContext":{"privileged":true},"volumeMounts":[{"mountPath":"C:\\ProgramData\\docker\\containers","name":"docker-windows-containers","readOnly":true},{"mountPath":"C:\\var","name":"docker-windows-kuberenetes-container-logs"},{"mountPath":"C:\\etc\\config\\settings","name":"settings-vol-config","readOnly":true},{"mountPath":"C:\\etc\\omsagent-secret","name":"omsagent-secret","readOnly":true},{"mountPath":"C:\\etc\\config\\adx","name":"omsagent-adx-secret","readOnly":true}]}],"dnsConfig":{"options":[{"name":"ndots","value":"3"}]},"priorityClassName":"system-node-critical","serviceAccountName":"omsagent","tolerations":[{"key":"CriticalAddonsOnly","operator":"Exists"},{"effect":"NoExecute","operator":"Exists"},{"effect":"NoSchedule","operator":"Exists"},{"effect":"PreferNoSchedule","operator":"Exists"}],"volumes":[{"hostPath":{"path":"C:\\var"},"name":"docker-windows-kuberenetes-container-logs"},{"hostPath":{"path":"C:\\ProgramData\\docker\\containers"},"name":"docker-windows-containers"},{"configMap":{"name":"container-azm-ms-agentconfig","optional":true},"name":"settings-vol-config"},{"name":"omsagent-secret","secret":{"secretName":"omsagent-secret"}},{"name":"omsagent-adx-secret","secret":{"optional":true,"secretName":"omsagent-adx-secret"}}]}},"updateStrategy":{"rollingUpdate":{"maxUnavailable":"50%"},"type":"RollingUpdate"}}}
+  creationTimestamp: "2021-03-10T06:00:46Z"
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+    component: oms-agent-win
+    kubernetes.io/cluster-service: "true"
+    tier: node-win
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:observedGeneration: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T06:00:46Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:deprecated.daemonset.template.generation: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:labels:
+          .: {}
+          f:addonmanager.kubernetes.io/mode: {}
+          f:component: {}
+          f:kubernetes.io/cluster-service: {}
+          f:tier: {}
+      f:spec:
+        f:revisionHistoryLimit: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:component: {}
+            f:tier: {}
+        f:template:
+          f:metadata:
+            f:annotations:
+              .: {}
+              f:WSID: {}
+              f:agentVersion: {}
+              f:dockerProviderVersion: {}
+              f:schema-versions: {}
+            f:labels:
+              .: {}
+              f:component: {}
+              f:kubernetes.azure.com/managedby: {}
+              f:tier: {}
+          f:spec:
+            f:affinity:
+              .: {}
+              f:nodeAffinity:
+                .: {}
+                f:requiredDuringSchedulingIgnoredDuringExecution:
+                  .: {}
+                  f:nodeSelectorTerms: {}
+            f:containers:
+              k:{"name":"omsagent-win"}:
+                .: {}
+                f:env:
+                  .: {}
+                  k:{"name":"AKS_REGION"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"AKS_RESOURCE_ID"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"CONTROLLER_TYPE"}:
+                    .: {}
+                    f:name: {}
+                    f:value: {}
+                  k:{"name":"HOSTNAME"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:fieldRef:
+                        .: {}
+                        f:apiVersion: {}
+                        f:fieldPath: {}
+                  k:{"name":"NODE_IP"}:
+                    .: {}
+                    f:name: {}
+                    f:valueFrom:
+                      .: {}
+                      f:fieldRef:
+                        .: {}
+                        f:apiVersion: {}
+                        f:fieldPath: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:livenessProbe:
+                  .: {}
+                  f:exec:
+                    .: {}
+                    f:command: {}
+                  f:failureThreshold: {}
+                  f:initialDelaySeconds: {}
+                  f:periodSeconds: {}
+                  f:successThreshold: {}
+                  f:timeoutSeconds: {}
+                f:name: {}
+                f:resources:
+                  .: {}
+                  f:limits:
+                    .: {}
+                    f:cpu: {}
+                    f:memory: {}
+                f:securityContext:
+                  .: {}
+                  f:privileged: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:volumeMounts:
+                  .: {}
+                  k:{"mountPath":"C:\\ProgramData\\docker\\containers"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:readOnly: {}
+                  k:{"mountPath":"C:\\etc\\config\\adx"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:readOnly: {}
+                  k:{"mountPath":"C:\\etc\\config\\settings"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:readOnly: {}
+                  k:{"mountPath":"C:\\etc\\omsagent-secret"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:readOnly: {}
+                  k:{"mountPath":"C:\\var"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+            f:dnsConfig:
+              .: {}
+              f:options: {}
+            f:dnsPolicy: {}
+            f:priorityClassName: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:serviceAccount: {}
+            f:serviceAccountName: {}
+            f:terminationGracePeriodSeconds: {}
+            f:tolerations: {}
+            f:volumes:
+              .: {}
+              k:{"name":"docker-windows-containers"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+              k:{"name":"docker-windows-kuberenetes-container-logs"}:
+                .: {}
+                f:hostPath:
+                  .: {}
+                  f:path: {}
+                  f:type: {}
+                f:name: {}
+              k:{"name":"omsagent-adx-secret"}:
+                .: {}
+                f:name: {}
+                f:secret:
+                  .: {}
+                  f:defaultMode: {}
+                  f:optional: {}
+                  f:secretName: {}
+              k:{"name":"omsagent-secret"}:
+                .: {}
+                f:name: {}
+                f:secret:
+                  .: {}
+                  f:defaultMode: {}
+                  f:secretName: {}
+              k:{"name":"settings-vol-config"}:
+                .: {}
+                f:configMap:
+                  .: {}
+                  f:defaultMode: {}
+                  f:name: {}
+                  f:optional: {}
+                f:name: {}
+        f:updateStrategy:
+          f:rollingUpdate:
+            .: {}
+            f:maxUnavailable: {}
+          f:type: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-03-10T06:00:46Z"
+  name: omsagent-win
+  namespace: kube-system
+spec:
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      component: oms-agent-win
+      tier: node-win
+  template:
+    metadata:
+      annotations:
+        WSID: YTViMjk1NTYtZDEzNC00ZDM5LWI4MmUtNzg0ZTYzYjBlM2Y4
+        agentVersion: 1.10.0.1
+        dockerProviderVersion: 13.0.0-0
+        schema-versions: v1
+      creationTimestamp: null
+      labels:
+        component: oms-agent-win
+        kubernetes.azure.com/managedby: aks
+        tier: node-win
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.azure.com/cluster
+                operator: Exists
+              - key: beta.kubernetes.io/os
+                operator: In
+                values:
+                - windows
+              - key: kubernetes.io/role
+                operator: In
+                values:
+                - agent
+              - key: type
+                operator: NotIn
+                values:
+                - virtual-kubelet
+      containers:
+      - env:
+        - name: AKS_RESOURCE_ID
+          value: /subscriptions/442f0218-2057-41f9-8c35-1dfcbc4691c0/resourceGroups/ohnewAKSCluster-rg/providers/Microsoft.ContainerService/managedClusters/ohnewAKSCluster
+        - name: AKS_REGION
+          value: eastasia
+        - name: CONTROLLER_TYPE
+          value: DaemonSet
+        - name: HOSTNAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: spec.nodeName
+        - name: NODE_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP
+        image: mcr.microsoft.com/azuremonitor/containerinsights/ciprod:win-ciprod02232021
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          exec:
+            command:
+            - cmd
+            - /c
+            - C:\opt\omsagentwindows\scripts\cmd\livenessProbe.cmd
+          failureThreshold: 3
+          initialDelaySeconds: 180
+          periodSeconds: 60
+          successThreshold: 1
+          timeoutSeconds: 15
+        name: omsagent-win
+        resources:
+          limits:
+            cpu: 200m
+            memory: 600Mi
+        securityContext:
+          privileged: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: C:\ProgramData\docker\containers
+          name: docker-windows-containers
+          readOnly: true
+        - mountPath: C:\var
+          name: docker-windows-kuberenetes-container-logs
+        - mountPath: C:\etc\config\settings
+          name: settings-vol-config
+          readOnly: true
+        - mountPath: C:\etc\omsagent-secret
+          name: omsagent-secret
+          readOnly: true
+        - mountPath: C:\etc\config\adx
+          name: omsagent-adx-secret
+          readOnly: true
+      dnsConfig:
+        options:
+        - name: ndots
+          value: "3"
+      dnsPolicy: ClusterFirst
+      priorityClassName: system-node-critical
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: omsagent
+      serviceAccountName: omsagent
+      terminationGracePeriodSeconds: 30
+      tolerations:
+      - key: CriticalAddonsOnly
+        operator: Exists
+      - effect: NoExecute
+        operator: Exists
+      - effect: NoSchedule
+        operator: Exists
+      - effect: PreferNoSchedule
+        operator: Exists
+      volumes:
+      - hostPath:
+          path: C:\var
+          type: ""
+        name: docker-windows-kuberenetes-container-logs
+      - hostPath:
+          path: C:\ProgramData\docker\containers
+          type: ""
+        name: docker-windows-containers
+      - configMap:
+          defaultMode: 420
+          name: container-azm-ms-agentconfig
+          optional: true
+        name: settings-vol-config
+      - name: omsagent-secret
+        secret:
+          defaultMode: 420
+          secretName: omsagent-secret
+      - name: omsagent-adx-secret
+        secret:
+          defaultMode: 420
+          optional: true
+          secretName: omsagent-adx-secret
+  updateStrategy:
+    rollingUpdate:
+      maxUnavailable: 50%
+    type: RollingUpdate

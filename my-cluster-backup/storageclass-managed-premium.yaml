@@ -1,0 +1,37 @@
+allowVolumeExpansion: true
+apiVersion: storage.k8s.io/v1beta1
+kind: StorageClass
+metadata:
+  creationTimestamp: "2021-03-10T06:00:45Z"
+  labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
+    kubernetes.io/cluster-service: "true"
+  managedFields:
+  - apiVersion: storage.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:allowVolumeExpansion: {}
+      f:metadata:
+        f:labels:
+          .: {}
+          f:addonmanager.kubernetes.io/mode: {}
+          f:kubernetes.io/cluster-service: {}
+      f:parameters:
+        .: {}
+        f:cachingmode: {}
+        f:kind: {}
+        f:storageaccounttype: {}
+      f:provisioner: {}
+      f:reclaimPolicy: {}
+      f:volumeBindingMode: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-03-10T06:00:45Z"
+  name: managed-premium
+parameters:
+  cachingmode: ReadOnly
+  kind: Managed
+  storageaccounttype: Premium_LRS
+provisioner: kubernetes.io/azure-disk
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer

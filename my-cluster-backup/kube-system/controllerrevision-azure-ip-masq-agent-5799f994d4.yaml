@@ -1,0 +1,113 @@
+apiVersion: apps/v1
+data:
+  spec:
+    template:
+      $patch: replace
+      metadata:
+        creationTimestamp: null
+        labels:
+          k8s-app: azure-ip-masq-agent
+          tier: node
+      spec:
+        affinity:
+          nodeAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.azure.com/cluster
+                  operator: Exists
+        containers:
+        - image: mcr.microsoft.com/oss/kubernetes/ip-masq-agent:v2.5.0.2
+          imagePullPolicy: IfNotPresent
+          name: azure-ip-masq-agent
+          resources:
+            limits:
+              cpu: 500m
+              memory: 250Mi
+            requests:
+              cpu: 100m
+              memory: 50Mi
+          securityContext:
+            privileged: true
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/config
+            name: azure-ip-masq-agent-config-volume
+          - mountPath: /run/xtables.lock
+            name: iptableslock
+        dnsPolicy: ClusterFirst
+        hostNetwork: true
+        nodeSelector:
+          beta.kubernetes.io/os: linux
+        priorityClassName: system-node-critical
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        tolerations:
+        - key: CriticalAddonsOnly
+          operator: Exists
+        - effect: NoExecute
+          operator: Exists
+        - effect: NoSchedule
+          operator: Exists
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: azure-ip-masq-agent-config
+          name: azure-ip-masq-agent-config-volume
+        - hostPath:
+            path: /run/xtables.lock
+            type: FileOrCreate
+          name: iptableslock
+kind: ControllerRevision
+metadata:
+  annotations:
+    deprecated.daemonset.template.generation: "1"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"DaemonSet","metadata":{"annotations":{},"labels":{"addonmanager.kubernetes.io/mode":"Reconcile","component":"azure-ip-masq-agent","kubernetes.io/cluster-service":"true","tier":"node"},"name":"azure-ip-masq-agent","namespace":"kube-system"},"spec":{"selector":{"matchLabels":{"k8s-app":"azure-ip-masq-agent","tier":"node"}},"template":{"metadata":{"labels":{"k8s-app":"azure-ip-masq-agent","tier":"node"}},"spec":{"affinity":{"nodeAffinity":{"requiredDuringSchedulingIgnoredDuringExecution":{"nodeSelectorTerms":[{"labelSelector":null,"matchExpressions":[{"key":"kubernetes.azure.com/cluster","operator":"Exists"}]}]}}},"containers":[{"image":"mcr.microsoft.com/oss/kubernetes/ip-masq-agent:v2.5.0.2","imagePullPolicy":"IfNotPresent","name":"azure-ip-masq-agent","resources":{"limits":{"cpu":"500m","memory":"250Mi"},"requests":{"cpu":"100m","memory":"50Mi"}},"securityContext":{"privileged":true},"volumeMounts":[{"mountPath":"/etc/config","name":"azure-ip-masq-agent-config-volume"},{"mountPath":"/run/xtables.lock","name":"iptableslock"}]}],"hostNetwork":true,"nodeSelector":{"beta.kubernetes.io/os":"linux"},"priorityClassName":"system-node-critical","tolerations":[{"key":"CriticalAddonsOnly","operator":"Exists"},{"effect":"NoExecute","operator":"Exists"},{"effect":"NoSchedule","operator":"Exists"}],"volumes":[{"configMap":{"name":"azure-ip-masq-agent-config"},"name":"azure-ip-masq-agent-config-volume"},{"hostPath":{"path":"/run/xtables.lock","type":"FileOrCreate"},"name":"iptableslock"}]}},"updateStrategy":{"rollingUpdate":{"maxUnavailable":"25%"},"type":"RollingUpdate"}}}
+  creationTimestamp: "2021-03-10T06:00:46Z"
+  labels:
+    controller-revision-hash: 5799f994d4
+    k8s-app: azure-ip-masq-agent
+    tier: node
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data: {}
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:deprecated.daemonset.template.generation: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:labels:
+          .: {}
+          f:controller-revision-hash: {}
+          f:k8s-app: {}
+          f:tier: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"1b3feebd-bbc6-404d-b809-3c5dec078127"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:revision: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T06:00:46Z"
+  name: azure-ip-masq-agent-5799f994d4
+  namespace: kube-system
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: DaemonSet
+    name: azure-ip-masq-agent
+    uid: 1b3feebd-bbc6-404d-b809-3c5dec078127
+revision: 1

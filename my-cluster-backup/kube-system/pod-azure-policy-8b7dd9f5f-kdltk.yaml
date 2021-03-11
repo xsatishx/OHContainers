@@ -1,0 +1,317 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    cluster-autoscaler.kubernetes.io/safe-to-evict: "true"
+  creationTimestamp: "2021-03-11T05:15:03Z"
+  generateName: azure-policy-8b7dd9f5f-
+  labels:
+    app: azure-policy
+    kubernetes.azure.com/managedby: aks
+    pod-template-hash: 8b7dd9f5f
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:cluster-autoscaler.kubernetes.io/safe-to-evict: {}
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:kubernetes.azure.com/managedby: {}
+          f:pod-template-hash: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"d231fe72-6797-4778-8d4e-ed19a096c476"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:affinity:
+          .: {}
+          f:nodeAffinity:
+            .: {}
+            f:preferredDuringSchedulingIgnoredDuringExecution: {}
+            f:requiredDuringSchedulingIgnoredDuringExecution:
+              .: {}
+              f:nodeSelectorTerms: {}
+        f:containers:
+          k:{"name":"azure-policy"}:
+            .: {}
+            f:env:
+              .: {}
+              k:{"name":"ACS_CREDENTIAL_LOCATION"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"AUDIT_INTERVAL"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"CURRENT_IMAGE"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"DATAPLANE_ENDPOINT"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"FULL_SCAN_EXCLUSION_LIST"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"K8S_POLICY_PREFIX"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"POD_NAME"}:
+                .: {}
+                f:name: {}
+                f:valueFrom:
+                  .: {}
+                  f:fieldRef:
+                    .: {}
+                    f:apiVersion: {}
+                    f:fieldPath: {}
+              k:{"name":"POD_NAMESPACE"}:
+                .: {}
+                f:name: {}
+                f:valueFrom:
+                  .: {}
+                  f:fieldRef:
+                    .: {}
+                    f:apiVersion: {}
+                    f:fieldPath: {}
+              k:{"name":"REFRESH_INTERVAL"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"RESOURCE_ID"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"RESOURCE_TYPE"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"TELEMETRY_HEARTBEAT_INTERVAL"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"USER_ASSIGNED_IDENTITY"}:
+                .: {}
+                f:name: {}
+              k:{"name":"WEBHOOK_EXCLUSION_LIST"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources:
+              .: {}
+              f:limits:
+                .: {}
+                f:cpu: {}
+                f:memory: {}
+              f:requests:
+                .: {}
+                f:cpu: {}
+                f:memory: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+            f:volumeMounts:
+              .: {}
+              k:{"mountPath":"/etc/acs/azure.json"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+                f:readOnly: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:priorityClassName: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:serviceAccount: {}
+        f:serviceAccountName: {}
+        f:terminationGracePeriodSeconds: {}
+        f:volumes:
+          .: {}
+          k:{"name":"acs-credential"}:
+            .: {}
+            f:hostPath:
+              .: {}
+              f:path: {}
+              f:type: {}
+            f:name: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-11T05:15:03Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"ContainersReady"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Initialized"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Ready"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+        f:containerStatuses: {}
+        f:hostIP: {}
+        f:phase: {}
+        f:podIP: {}
+        f:podIPs:
+          .: {}
+          k:{"ip":"10.2.1.162"}:
+            .: {}
+            f:ip: {}
+        f:startTime: {}
+    manager: kubelet
+    operation: Update
+    time: "2021-03-11T05:15:05Z"
+  name: azure-policy-8b7dd9f5f-kdltk
+  namespace: kube-system
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: azure-policy-8b7dd9f5f
+    uid: d231fe72-6797-4778-8d4e-ed19a096c476
+spec:
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - preference:
+          matchExpressions:
+          - key: kubernetes.azure.com/mode
+            operator: In
+            values:
+            - system
+        weight: 100
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.azure.com/cluster
+            operator: Exists
+          - key: type
+            operator: NotIn
+            values:
+            - virtual-kubelet
+          - key: beta.kubernetes.io/os
+            operator: In
+            values:
+            - linux
+  containers:
+  - env:
+    - name: K8S_POLICY_PREFIX
+      value: azurepolicy
+    - name: RESOURCE_ID
+      value: /subscriptions/442f0218-2057-41f9-8c35-1dfcbc4691c0/resourceGroups/ohnewAKSCluster-rg/providers/Microsoft.ContainerService/managedClusters/ohnewAKSCluster
+    - name: RESOURCE_TYPE
+      value: Microsoft.ContainerService/managedClusters
+    - name: DATAPLANE_ENDPOINT
+      value: https://gov-prod-policy-data.trafficmanager.net
+    - name: ACS_CREDENTIAL_LOCATION
+      value: /etc/acs/azure.json
+    - name: REFRESH_INTERVAL
+      value: 15m
+    - name: AUDIT_INTERVAL
+      value: 15m
+    - name: TELEMETRY_HEARTBEAT_INTERVAL
+      value: 15m
+    - name: USER_ASSIGNED_IDENTITY
+    - name: CURRENT_IMAGE
+      value: mcr.microsoft.com/azure-policy/policy-kubernetes-addon-prod:prod_20201015.1
+    - name: FULL_SCAN_EXCLUSION_LIST
+      value: kube-system,gatekeeper-system,aks-periscope
+    - name: WEBHOOK_EXCLUSION_LIST
+      value: kube-system,gatekeeper-system,aks-periscope
+    - name: POD_NAME
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: metadata.name
+    - name: POD_NAMESPACE
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: metadata.namespace
+    - name: KUBERNETES_PORT_443_TCP_ADDR
+      value: ohnewakscluster-dns-1d16279e.hcp.eastasia.azmk8s.io
+    - name: KUBERNETES_PORT
+      value: tcp://ohnewakscluster-dns-1d16279e.hcp.eastasia.azmk8s.io:443
+    - name: KUBERNETES_PORT_443_TCP
+      value: tcp://ohnewakscluster-dns-1d16279e.hcp.eastasia.azmk8s.io:443
+    - name: KUBERNETES_SERVICE_HOST
+      value: ohnewakscluster-dns-1d16279e.hcp.eastasia.azmk8s.io
+    image: mcr.microsoft.com/azure-policy/policy-kubernetes-addon-prod:prod_20201015.1
+    imagePullPolicy: IfNotPresent
+    name: azure-policy
+    resources:
+      limits:
+        cpu: 100m
+        memory: 200Mi
+      requests:
+        cpu: 30m
+        memory: 50Mi
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /etc/acs/azure.json
+      name: acs-credential
+      readOnly: true
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: azure-policy-token-fw4fh
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: aks-openhacknp-38943226-vmss000001
+  priority: 2000001000
+  priorityClassName: system-node-critical
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: azure-policy
+  serviceAccountName: azure-policy
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - hostPath:
+      path: /etc/kubernetes/azure.json
+      type: File
+    name: acs-credential
+  - name: azure-policy-token-fw4fh
+    secret:
+      defaultMode: 420
+      secretName: azure-policy-token-fw4fh

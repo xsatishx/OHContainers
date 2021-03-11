@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: "2021-03-10T06:00:17Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:phase: {}
+    manager: kube-apiserver
+    operation: Update
+    time: "2021-03-10T06:00:17Z"
+  name: default
+spec:
+  finalizers:
+  - kubernetes

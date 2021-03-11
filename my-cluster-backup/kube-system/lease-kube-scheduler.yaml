@@ -1,0 +1,25 @@
+apiVersion: coordination.k8s.io/v1beta1
+kind: Lease
+metadata:
+  creationTimestamp: "2021-03-10T06:00:43Z"
+  managedFields:
+  - apiVersion: coordination.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:acquireTime: {}
+        f:holderIdentity: {}
+        f:leaseDurationSeconds: {}
+        f:leaseTransitions: {}
+        f:renewTime: {}
+    manager: kube-scheduler
+    operation: Update
+    time: "2021-03-10T06:00:43Z"
+  name: kube-scheduler
+  namespace: kube-system
+spec:
+  acquireTime: "2021-03-10T06:00:43.000000Z"
+  holderIdentity: kube-scheduler-674dfcb49-hf6cc_8809ed02-538a-44b6-8ba8-9392359e5b90
+  leaseDurationSeconds: 15
+  leaseTransitions: 0
+  renewTime: "2021-03-11T08:40:27.630906Z"

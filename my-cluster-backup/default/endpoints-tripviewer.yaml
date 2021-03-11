@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-10T07:30:51Z"
+  creationTimestamp: "2021-03-10T07:14:02Z"
+  labels:
+    app: tripviewer
+    env: OpenHack
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:env: {}
+      f:subsets: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:30:50Z"
+  name: tripviewer
+  namespace: default
+subsets:
+- addresses:
+  - ip: 10.2.1.101
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: tripviewer-659b79d9f-7n9bl
+      namespace: default
+      resourceVersion: "13651"
+      uid: 76d9ef4a-a5b0-4385-8cc3-8d8f84be3a20
+  - ip: 10.2.1.121
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: tripviewer-659b79d9f-98xxq
+      namespace: default
+      resourceVersion: "13656"
+      uid: d43684b3-0c81-45da-9441-33595c364e45
+  - ip: 10.2.1.99
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: tripviewer-659b79d9f-h9szz
+      namespace: default
+      resourceVersion: "13636"
+      uid: 20d5f1e4-c7d4-4050-b898-406e43544c3c
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP

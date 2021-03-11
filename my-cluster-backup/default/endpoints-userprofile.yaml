@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-10T07:24:46Z"
+  creationTimestamp: "2021-03-10T07:16:16Z"
+  labels:
+    app: userprofile
+    env: OpenHack
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:env: {}
+      f:subsets: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:24:45Z"
+  name: userprofile
+  namespace: default
+subsets:
+- addresses:
+  - ip: 10.2.1.107
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: userprofile-5d9c8b85b4-gsd8t
+      namespace: default
+      resourceVersion: "12622"
+      uid: 464ef997-d36f-4e4d-952f-862062257a25
+  - ip: 10.2.1.117
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: userprofile-5d9c8b85b4-k9vbm
+      namespace: default
+      resourceVersion: "12626"
+      uid: 7e7824a4-ad71-4479-84f8-7976accb0875
+  - ip: 10.2.1.125
+    nodeName: aks-agentpool-38943226-vmss000000
+    targetRef:
+      kind: Pod
+      name: userprofile-5d9c8b85b4-2bzfr
+      namespace: default
+      resourceVersion: "12614"
+      uid: 3369f271-6497-4bb4-8e8a-a1bbe3d322f1
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP

@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"NetworkPolicy","metadata":{"annotations":{},"name":"backend-policy","namespace":"development"},"spec":{"ingress":[],"podSelector":{"matchLabels":{"app":"webapp","role":"backend"}}}}
+  creationTimestamp: "2021-03-11T07:55:01Z"
+  managedFields:
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        f:podSelector:
+          f:matchLabels:
+            .: {}
+            f:app: {}
+            f:role: {}
+        f:policyTypes: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2021-03-11T07:55:01Z"
+  name: backend-policy
+  namespace: development
+spec:
+  podSelector:
+    matchLabels:
+      app: webapp
+      role: backend
+  policyTypes:
+  - Ingress

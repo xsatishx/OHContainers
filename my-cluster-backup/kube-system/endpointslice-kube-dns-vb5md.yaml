@@ -1,0 +1,85 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1beta1
+endpoints:
+- addresses:
+  - 10.2.1.118
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: coredns-748cdb7bf4-4jhbt
+    namespace: kube-system
+    resourceVersion: "513"
+    uid: 9bb94bc1-1b00-4f75-93ac-4beb1f5a830b
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+- addresses:
+  - 10.2.1.105
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: coredns-748cdb7bf4-v225x
+    namespace: kube-system
+    resourceVersion: "571"
+    uid: 1df23f15-50be-4d2b-899e-3a00a285d5c1
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-10T06:02:02Z"
+  creationTimestamp: "2021-03-10T06:00:46Z"
+  generateName: kube-dns-
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: kube-dns
+  managedFields:
+  - apiVersion: discovery.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:addressType: {}
+      f:endpoints: {}
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:endpointslice.kubernetes.io/managed-by: {}
+          f:kubernetes.io/service-name: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"3c8df236-0d25-482a-b5fc-ea1c12cf5fdd"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:ports: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T06:02:02Z"
+  name: kube-dns-vb5md
+  namespace: kube-system
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: kube-dns
+    uid: 3c8df236-0d25-482a-b5fc-ea1c12cf5fdd
+ports:
+- name: dns-tcp
+  port: 53
+  protocol: TCP
+- name: dns
+  port: 53
+  protocol: UDP

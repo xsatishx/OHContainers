@@ -1,0 +1,96 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1beta1
+endpoints:
+- addresses:
+  - 10.2.1.125
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: userprofile-5d9c8b85b4-2bzfr
+    namespace: default
+    resourceVersion: "12614"
+    uid: 3369f271-6497-4bb4-8e8a-a1bbe3d322f1
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+- addresses:
+  - 10.2.1.107
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: userprofile-5d9c8b85b4-gsd8t
+    namespace: default
+    resourceVersion: "12622"
+    uid: 464ef997-d36f-4e4d-952f-862062257a25
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+- addresses:
+  - 10.2.1.117
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: userprofile-5d9c8b85b4-k9vbm
+    namespace: default
+    resourceVersion: "12626"
+    uid: 7e7824a4-ad71-4479-84f8-7976accb0875
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-10T07:24:46Z"
+  creationTimestamp: "2021-03-10T07:16:16Z"
+  generateName: userprofile-
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: userprofile
+  managedFields:
+  - apiVersion: discovery.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:addressType: {}
+      f:endpoints: {}
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:endpointslice.kubernetes.io/managed-by: {}
+          f:kubernetes.io/service-name: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"81033b9e-c218-4c81-b4d9-dfed11f39d0c"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:ports: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:24:45Z"
+  name: userprofile-cqcj5
+  namespace: default
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: userprofile
+    uid: 81033b9e-c218-4c81-b4d9-dfed11f39d0c
+ports:
+- name: http
+  port: 80
+  protocol: TCP

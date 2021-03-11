@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2021-03-10T06:00:45Z"
+  labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
+    k8s-app: kube-dns
+    kubernetes.io/cluster-service: "true"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:addonmanager.kubernetes.io/mode: {}
+          f:k8s-app: {}
+          f:kubernetes.io/cluster-service: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-03-10T06:00:45Z"
+  name: coredns-custom
+  namespace: kube-system

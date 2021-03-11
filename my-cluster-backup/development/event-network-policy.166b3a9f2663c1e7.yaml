@@ -1,0 +1,48 @@
+apiVersion: events.k8s.io/v1beta1
+deprecatedCount: 1
+deprecatedFirstTimestamp: "2021-03-11T07:55:46Z"
+deprecatedLastTimestamp: "2021-03-11T07:55:46Z"
+deprecatedSource:
+  component: kubelet
+  host: aks-openhacknp-38943226-vmss000000
+eventTime: null
+kind: Event
+metadata:
+  creationTimestamp: "2021-03-11T07:55:46Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:count: {}
+      f:firstTimestamp: {}
+      f:involvedObject:
+        f:apiVersion: {}
+        f:fieldPath: {}
+        f:kind: {}
+        f:name: {}
+        f:namespace: {}
+        f:resourceVersion: {}
+        f:uid: {}
+      f:lastTimestamp: {}
+      f:message: {}
+      f:reason: {}
+      f:source:
+        f:component: {}
+        f:host: {}
+      f:type: {}
+    manager: kubelet
+    operation: Update
+    time: "2021-03-11T07:55:46Z"
+  name: network-policy.166b3a9f2663c1e7
+  namespace: development
+note: Successfully pulled image "alpine"
+reason: Pulled
+regarding:
+  apiVersion: v1
+  fieldPath: spec.containers{network-policy}
+  kind: Pod
+  name: network-policy
+  namespace: development
+  resourceVersion: "228429"
+  uid: b9476a90-4499-44c9-8651-a02b64a6050b
+type: Normal

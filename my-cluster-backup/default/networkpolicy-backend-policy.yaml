@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"NetworkPolicy","metadata":{"annotations":{},"name":"backend-policy","namespace":"default"},"spec":{"ingress":[],"podSelector":{"matchLabels":{"app":"tripviewer"}}}}
+  creationTimestamp: "2021-03-11T06:19:47Z"
+  managedFields:
+  - apiVersion: networking.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        f:podSelector:
+          f:matchLabels:
+            .: {}
+            f:app: {}
+        f:policyTypes: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2021-03-11T06:38:40Z"
+  name: backend-policy
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: tripviewer
+  policyTypes:
+  - Ingress

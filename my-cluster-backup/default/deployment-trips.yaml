@@ -1,0 +1,168 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "2"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"trips","env":"OpenHack"},"name":"trips","namespace":"default"},"spec":{"replicas":3,"selector":{"matchLabels":{"app":"trips","env":"OpenHack"}},"strategy":{"type":"Recreate"},"template":{"metadata":{"labels":{"app":"trips","env":"OpenHack"}},"spec":{"containers":[{"image":"registryjya8643.azurecr.io/trips:1.0","name":"trips","volumeMounts":[{"mountPath":"/secrets","name":"secrets-store-inline","readOnly":true}]}],"volumes":[{"csi":{"driver":"secrets-store.csi.k8s.io","nodePublishSecretRef":{"name":"secrets-store-creds"},"readOnly":true,"volumeAttributes":{"secretProviderClass":"aks-keyvault-openhack"}},"name":"secrets-store-inline"}]}}}}
+  creationTimestamp: "2021-03-10T06:50:40Z"
+  labels:
+    app: trips
+    env: OpenHack
+  managedFields:
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:env: {}
+      f:spec:
+        f:progressDeadlineSeconds: {}
+        f:replicas: {}
+        f:revisionHistoryLimit: {}
+        f:selector:
+          f:matchLabels:
+            .: {}
+            f:app: {}
+            f:env: {}
+        f:strategy:
+          f:type: {}
+        f:template:
+          f:metadata:
+            f:labels:
+              .: {}
+              f:app: {}
+              f:env: {}
+          f:spec:
+            f:containers:
+              k:{"name":"trips"}:
+                .: {}
+                f:image: {}
+                f:imagePullPolicy: {}
+                f:name: {}
+                f:resources: {}
+                f:terminationMessagePath: {}
+                f:terminationMessagePolicy: {}
+                f:volumeMounts: {}
+            f:dnsPolicy: {}
+            f:restartPolicy: {}
+            f:schedulerName: {}
+            f:securityContext: {}
+            f:terminationGracePeriodSeconds: {}
+            f:volumes:
+              .: {}
+              k:{"name":"secrets-store-inline"}:
+                .: {}
+                f:csi:
+                  .: {}
+                  f:driver: {}
+                  f:nodePublishSecretRef:
+                    .: {}
+                    f:name: {}
+                  f:readOnly: {}
+                  f:volumeAttributes:
+                    .: {}
+                    f:secretProviderClass: {}
+                f:name: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2021-03-10T06:50:40Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:spec:
+        f:template:
+          f:spec:
+            f:containers:
+              k:{"name":"trips"}:
+                f:volumeMounts:
+                  k:{"mountPath":"/secrets"}:
+                    .: {}
+                    f:mountPath: {}
+                    f:name: {}
+                    f:readOnly: {}
+    manager: kubectl-edit
+    operation: Update
+    time: "2021-03-10T07:21:34Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:deployment.kubernetes.io/revision: {}
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+        f:updatedReplicas: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:21:48Z"
+  name: trips
+  namespace: default
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: trips
+      env: OpenHack
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: trips
+        env: OpenHack
+    spec:
+      containers:
+      - image: registryjya8643.azurecr.io/trips:1.0
+        imagePullPolicy: IfNotPresent
+        name: trips
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /secrets
+          name: secrets-store-inline
+          readOnly: true
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - csi:
+          driver: secrets-store.csi.k8s.io
+          nodePublishSecretRef:
+            name: secrets-store-creds
+          readOnly: true
+          volumeAttributes:
+            secretProviderClass: aks-keyvault-openhack
+        name: secrets-store-inline

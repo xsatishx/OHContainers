@@ -1,0 +1,178 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2021-03-10T07:30:43Z"
+  generateName: tripviewer-659b79d9f-
+  labels:
+    app: tripviewer
+    env: OpenHack
+    pod-template-hash: 659b79d9f
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:env: {}
+          f:pod-template-hash: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"9f8c8695-ed59-4d53-96cd-1366f36855bf"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:spec:
+        f:containers:
+          k:{"name":"tripviewer"}:
+            .: {}
+            f:env:
+              .: {}
+              k:{"name":"TRIPS_API_ENDPOINT"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+              k:{"name":"USERPROFILE_API_ENDPOINT"}:
+                .: {}
+                f:name: {}
+                f:value: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+            f:volumeMounts:
+              .: {}
+              k:{"mountPath":"/secret"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+                f:readOnly: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:terminationGracePeriodSeconds: {}
+        f:volumes:
+          .: {}
+          k:{"name":"secrets-store-inline"}:
+            .: {}
+            f:csi:
+              .: {}
+              f:driver: {}
+              f:nodePublishSecretRef:
+                .: {}
+                f:name: {}
+              f:readOnly: {}
+              f:volumeAttributes:
+                .: {}
+                f:secretProviderClass: {}
+            f:name: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:30:43Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"ContainersReady"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Initialized"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Ready"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+        f:containerStatuses: {}
+        f:hostIP: {}
+        f:phase: {}
+        f:podIP: {}
+        f:podIPs:
+          .: {}
+          k:{"ip":"10.2.1.101"}:
+            .: {}
+            f:ip: {}
+        f:startTime: {}
+    manager: kubelet
+    operation: Update
+    time: "2021-03-10T07:30:51Z"
+  name: tripviewer-659b79d9f-7n9bl
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: tripviewer-659b79d9f
+    uid: 9f8c8695-ed59-4d53-96cd-1366f36855bf
+spec:
+  containers:
+  - env:
+    - name: TRIPS_API_ENDPOINT
+      value: http://trips.default.svc.cluster.local
+    - name: USERPROFILE_API_ENDPOINT
+      value: http://userprofile.default.svc.cluster.local
+    image: registryjya8643.azurecr.io/tripviewer:1.0
+    imagePullPolicy: IfNotPresent
+    name: tripviewer
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /secret
+      name: secrets-store-inline
+      readOnly: true
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-58bgb
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: aks-agentpool-38943226-vmss000000
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - csi:
+      driver: secrets-store.csi.k8s.io
+      nodePublishSecretRef:
+        name: secrets-store-creds
+      readOnly: true
+      volumeAttributes:
+        secretProviderClass: aks-keyvault-openhack
+    name: secrets-store-inline
+  - name: default-token-58bgb
+    secret:
+      defaultMode: 420
+      secretName: default-token-58bgb

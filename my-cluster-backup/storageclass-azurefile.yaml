@@ -1,0 +1,37 @@
+allowVolumeExpansion: true
+apiVersion: storage.k8s.io/v1beta1
+kind: StorageClass
+metadata:
+  creationTimestamp: "2021-03-10T06:00:45Z"
+  labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
+    kubernetes.io/cluster-service: "true"
+  managedFields:
+  - apiVersion: storage.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:allowVolumeExpansion: {}
+      f:metadata:
+        f:labels:
+          .: {}
+          f:addonmanager.kubernetes.io/mode: {}
+          f:kubernetes.io/cluster-service: {}
+      f:mountOptions: {}
+      f:parameters:
+        .: {}
+        f:skuName: {}
+      f:provisioner: {}
+      f:reclaimPolicy: {}
+      f:volumeBindingMode: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-03-10T06:00:45Z"
+  name: azurefile
+mountOptions:
+- mfsymlinks
+- actimeo=30
+parameters:
+  skuName: Standard_LRS
+provisioner: kubernetes.io/azure-file
+reclaimPolicy: Delete
+volumeBindingMode: Immediate

@@ -1,0 +1,143 @@
+apiVersion: admissionregistration.k8s.io/v1beta1
+kind: ValidatingWebhookConfiguration
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"admissionregistration.k8s.io/v1beta1","kind":"ValidatingWebhookConfiguration","metadata":{"annotations":{},"creationTimestamp":null,"labels":{"addonmanager.kubernetes.io/mode":"Reconcile","gatekeeper.sh/system":"yes"},"name":"gatekeeper-validating-webhook-configuration"},"webhooks":[{"clientConfig":{"caBundle":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUUvakNDQXVhZ0F3SUJBZ0lRWXVrSHI4YzRJUEdMWkpuMGlnMUszekFOQmdrcWhraUc5dzBCQVFzRkFEQVkKTVJZd0ZBWURWUVFERXcxbllYUmxhMlZsY0dWeUxXTmhNQ0FYRFRJeE1ETXhNVEExTURRd04xb1lEekl3TlRFdwpNekV4TURVeE5EQTNXakFZTVJZd0ZBWURWUVFERXcxbllYUmxhMlZsY0dWeUxXTmhNSUlDSWpBTkJna3Foa2lHCjl3MEJBUUVGQUFPQ0FnOEFNSUlDQ2dLQ0FnRUF2VWFENUtEYU41dUdiazFBc0ptaW55eFN4SlNTVWpBSHYvWjgKTzczeUNidUoxT2l1QkIvT1JKRGU2YmtZZ2xxMFcrUGM2alo0eW95M0FaNnpDeG93MVllNUgxNGRtZjNVQ09XaQpHVTZzWktuSFBkcnJJYlRVL01CZUxMVGYrRWt3WW5YWnJDNW1tTUw4dm9QZktzMGhJby9xcldpMmNmWFMraWhKCmZWV3lBUDR3UmFBcXBMNVFUalF0MFEwNEpra0E1ZU9oY1Bza0NjOG1DV0NxL3JoRlZ4VHY3ZFhyeWhYaDIrK3oKN0NoTkl1L1I1OFFPZ3A0MHowT05FZUl6WGgrSE95Y2trcHFiaFBTZmhEUUVNY3Rjcll2WDA1b0dKY1YzdTdzRQo3c3hoZW90TVFpQkY1VzlZZkhRY3p5ekx4bmREazBGWUg1YktrOEhyUkxGQU10YjhUZjJuUFlZZmZOMUhoaFpOCm84bEphMGFYN3BWWVd3TDVBNnJBUlJwRytvUjg5SHVUYkF6QmRlRW0wZDlNTVNzZGNnajA1ZUhnTjhZc1lQa1EKWklpNnFkMEQ2dFNnQlpUTHhhZ2NmQU1XN1IrVFhGKzJPVU1ZMXdvM3ZTSk5jeWNEU1pnK2FlVHA2aHBsL1BUUQpXSWlJTmtNQ2JPU0RkdTRLVnVSdmN0VkEzZGtzeGxtZkJrK2dvTllKajBaQ0ZTY0xOb2JqMVRRMjQ3M1lFcTUwCnlYR2UxbDBPYzB4TWJDK0JIRnJpUHRXdE1QaWJZaHliV1dyN3JlNElmY054VXArd1ZPYXdhekhLK0VBMGpLMS8KZXp3ZTlZM0NYc0xxQzFnc2xXcWx2N1Y3dk5waTR3WEE1MHBFaVpvc0JzQlAycWtvOVhBTDBuakVjWHUzaE5lZApsc2JKRWtjQ0F3RUFBYU5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3CkhRWURWUjBPQkJZRUZJUFVtcHp6eFBnWWJYelNRU1ZXaTN3QitLM29NQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUMKQVFDaFI2RTFpYTZPQnljbVlkWmxjN3VqMDIvaTJ3WHdMeEtVdWFGOTFtblk4Snk1YWM4TmsvZUNDTU5aWHRHUgpDMUJnR21SU2h4Ukx6NHpvMUUrM0RuNU16eGZtUkN6OGthcVR0bDlwZEQxQk1FTnN3Rk1pd3VSM0VVNE5vTGppCnVFNXo1T2c2NU5KekVINUtvK0dHYlcyc1BYUkh6dTl4WGRodlZINlJCbTZSRU04TG9ZU2UyM2diczhGRWhkUmsKanpJYnBhcGxvb29VYjg0NGRJT1k5dy9kSHRiZ0xFZ0JYWE9zZkFSZTdOYTFpNEpqR2tJU3BFd0Fnb1B6dllrMQo5Y3VPZGYrOFdOMVJkTWk3cVE4RXgxcVJlWjBnSnFRaVFEUXJ0SG9YL3hsMllUVVRwU0w5UWxRTWVjUjVOSFF6CmlQVDZjSUlmUHZuNXJnZG14UkVOUUdybTJNZnlVdFZBVU9odk13UnZwYXlyMGw3MDgxRGFpblNZL0tDMlNZQ0wKVm9hSGZFQ3NmWC9ET1ZqNGtjd3VNVVlXdWxRcjlrWWZuWXF0Vm9yTjl3b0M5Y2p2MlhsMlAxQlJod0VaejFvYQovMmhuaytweTdLcTkwK2ZtdGJFaDVRNUVKOE4yRGY2UmxNaFB2TWpzYmJUd1RDRmNaZVc0dTlxVTN1TFVPZ1lXCmtOc1p6YVZXdmZQVWxSdW4wOUNXazFtcUhjV3Z1d05NMGxiem1WVWV6QUN3a2c0eXl1aHZJV3Q3ZDVEZVFXV04KcWpub21RQStXa1p0NHNsaHR0cDRQemZ0ZVc5bEVZcWFTaVVncldkNFM0WGY0aXJFekhpdEh5VHlNeHZSbGVCMwpHRytvQmExU1VKajZ4QWZObFRvNU1HdG9QMTRqSDhuZU54Rk5IQk9EVjBtVmNRPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=","service":{"name":"gatekeeper-webhook-service","namespace":"gatekeeper-system","path":"/v1/admit"}},"failurePolicy":"Ignore","name":"validation.gatekeeper.sh","namespaceSelector":{"matchExpressions":[{"key":"control-plane","operator":"DoesNotExist"},{"key":"admission.gatekeeper.sh/ignore","operator":"DoesNotExist"}]},"rules":[{"apiGroups":["*"],"apiVersions":["*"],"operations":["CREATE","UPDATE"],"resources":["*"]}],"sideEffects":"None","timeoutSeconds":3},{"clientConfig":{"caBundle":"LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUUvakNDQXVhZ0F3SUJBZ0lRWXVrSHI4YzRJUEdMWkpuMGlnMUszekFOQmdrcWhraUc5dzBCQVFzRkFEQVkKTVJZd0ZBWURWUVFERXcxbllYUmxhMlZsY0dWeUxXTmhNQ0FYRFRJeE1ETXhNVEExTURRd04xb1lEekl3TlRFdwpNekV4TURVeE5EQTNXakFZTVJZd0ZBWURWUVFERXcxbllYUmxhMlZsY0dWeUxXTmhNSUlDSWpBTkJna3Foa2lHCjl3MEJBUUVGQUFPQ0FnOEFNSUlDQ2dLQ0FnRUF2VWFENUtEYU41dUdiazFBc0ptaW55eFN4SlNTVWpBSHYvWjgKTzczeUNidUoxT2l1QkIvT1JKRGU2YmtZZ2xxMFcrUGM2alo0eW95M0FaNnpDeG93MVllNUgxNGRtZjNVQ09XaQpHVTZzWktuSFBkcnJJYlRVL01CZUxMVGYrRWt3WW5YWnJDNW1tTUw4dm9QZktzMGhJby9xcldpMmNmWFMraWhKCmZWV3lBUDR3UmFBcXBMNVFUalF0MFEwNEpra0E1ZU9oY1Bza0NjOG1DV0NxL3JoRlZ4VHY3ZFhyeWhYaDIrK3oKN0NoTkl1L1I1OFFPZ3A0MHowT05FZUl6WGgrSE95Y2trcHFiaFBTZmhEUUVNY3Rjcll2WDA1b0dKY1YzdTdzRQo3c3hoZW90TVFpQkY1VzlZZkhRY3p5ekx4bmREazBGWUg1YktrOEhyUkxGQU10YjhUZjJuUFlZZmZOMUhoaFpOCm84bEphMGFYN3BWWVd3TDVBNnJBUlJwRytvUjg5SHVUYkF6QmRlRW0wZDlNTVNzZGNnajA1ZUhnTjhZc1lQa1EKWklpNnFkMEQ2dFNnQlpUTHhhZ2NmQU1XN1IrVFhGKzJPVU1ZMXdvM3ZTSk5jeWNEU1pnK2FlVHA2aHBsL1BUUQpXSWlJTmtNQ2JPU0RkdTRLVnVSdmN0VkEzZGtzeGxtZkJrK2dvTllKajBaQ0ZTY0xOb2JqMVRRMjQ3M1lFcTUwCnlYR2UxbDBPYzB4TWJDK0JIRnJpUHRXdE1QaWJZaHliV1dyN3JlNElmY054VXArd1ZPYXdhekhLK0VBMGpLMS8KZXp3ZTlZM0NYc0xxQzFnc2xXcWx2N1Y3dk5waTR3WEE1MHBFaVpvc0JzQlAycWtvOVhBTDBuakVjWHUzaE5lZApsc2JKRWtjQ0F3RUFBYU5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3CkhRWURWUjBPQkJZRUZJUFVtcHp6eFBnWWJYelNRU1ZXaTN3QitLM29NQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUMKQVFDaFI2RTFpYTZPQnljbVlkWmxjN3VqMDIvaTJ3WHdMeEtVdWFGOTFtblk4Snk1YWM4TmsvZUNDTU5aWHRHUgpDMUJnR21SU2h4Ukx6NHpvMUUrM0RuNU16eGZtUkN6OGthcVR0bDlwZEQxQk1FTnN3Rk1pd3VSM0VVNE5vTGppCnVFNXo1T2c2NU5KekVINUtvK0dHYlcyc1BYUkh6dTl4WGRodlZINlJCbTZSRU04TG9ZU2UyM2diczhGRWhkUmsKanpJYnBhcGxvb29VYjg0NGRJT1k5dy9kSHRiZ0xFZ0JYWE9zZkFSZTdOYTFpNEpqR2tJU3BFd0Fnb1B6dllrMQo5Y3VPZGYrOFdOMVJkTWk3cVE4RXgxcVJlWjBnSnFRaVFEUXJ0SG9YL3hsMllUVVRwU0w5UWxRTWVjUjVOSFF6CmlQVDZjSUlmUHZuNXJnZG14UkVOUUdybTJNZnlVdFZBVU9odk13UnZwYXlyMGw3MDgxRGFpblNZL0tDMlNZQ0wKVm9hSGZFQ3NmWC9ET1ZqNGtjd3VNVVlXdWxRcjlrWWZuWXF0Vm9yTjl3b0M5Y2p2MlhsMlAxQlJod0VaejFvYQovMmhuaytweTdLcTkwK2ZtdGJFaDVRNUVKOE4yRGY2UmxNaFB2TWpzYmJUd1RDRmNaZVc0dTlxVTN1TFVPZ1lXCmtOc1p6YVZXdmZQVWxSdW4wOUNXazFtcUhjV3Z1d05NMGxiem1WVWV6QUN3a2c0eXl1aHZJV3Q3ZDVEZVFXV04KcWpub21RQStXa1p0NHNsaHR0cDRQemZ0ZVc5bEVZcWFTaVVncldkNFM0WGY0aXJFekhpdEh5VHlNeHZSbGVCMwpHRytvQmExU1VKajZ4QWZObFRvNU1HdG9QMTRqSDhuZU54Rk5IQk9EVjBtVmNRPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=","service":{"name":"gatekeeper-webhook-service","namespace":"gatekeeper-system","path":"/v1/admitlabel"}},"failurePolicy":"Ignore","name":"check-ignore-label.gatekeeper.sh","rules":[{"apiGroups":[""],"apiVersions":["*"],"operations":["CREATE","UPDATE"],"resources":["namespaces"]}],"sideEffects":"None","timeoutSeconds":3}]}
+  creationTimestamp: "2021-03-11T05:15:02Z"
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+    gatekeeper.sh/system: "yes"
+  managedFields:
+  - apiVersion: admissionregistration.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:webhooks:
+        k:{"name":"check-ignore-label.gatekeeper.sh"}:
+          f:namespaceSelector:
+            f:matchExpressions: {}
+    manager: admissionsenforcer
+    operation: Update
+    time: "2021-03-11T05:15:02Z"
+  - apiVersion: admissionregistration.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:labels:
+          .: {}
+          f:addonmanager.kubernetes.io/mode: {}
+          f:gatekeeper.sh/system: {}
+      f:webhooks:
+        .: {}
+        k:{"name":"check-ignore-label.gatekeeper.sh"}:
+          .: {}
+          f:admissionReviewVersions: {}
+          f:clientConfig:
+            .: {}
+            f:caBundle: {}
+            f:service:
+              .: {}
+              f:name: {}
+              f:namespace: {}
+              f:path: {}
+              f:port: {}
+          f:failurePolicy: {}
+          f:matchPolicy: {}
+          f:name: {}
+          f:namespaceSelector: {}
+          f:objectSelector: {}
+          f:rules: {}
+          f:sideEffects: {}
+          f:timeoutSeconds: {}
+        k:{"name":"validation.gatekeeper.sh"}:
+          .: {}
+          f:admissionReviewVersions: {}
+          f:clientConfig:
+            .: {}
+            f:caBundle: {}
+            f:service:
+              .: {}
+              f:name: {}
+              f:namespace: {}
+              f:path: {}
+              f:port: {}
+          f:failurePolicy: {}
+          f:matchPolicy: {}
+          f:name: {}
+          f:namespaceSelector:
+            .: {}
+            f:matchExpressions: {}
+          f:objectSelector: {}
+          f:rules: {}
+          f:sideEffects: {}
+          f:timeoutSeconds: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-03-11T05:15:02Z"
+  name: gatekeeper-validating-webhook-configuration
+webhooks:
+- admissionReviewVersions:
+  - v1beta1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUUvakNDQXVhZ0F3SUJBZ0lRWXVrSHI4YzRJUEdMWkpuMGlnMUszekFOQmdrcWhraUc5dzBCQVFzRkFEQVkKTVJZd0ZBWURWUVFERXcxbllYUmxhMlZsY0dWeUxXTmhNQ0FYRFRJeE1ETXhNVEExTURRd04xb1lEekl3TlRFdwpNekV4TURVeE5EQTNXakFZTVJZd0ZBWURWUVFERXcxbllYUmxhMlZsY0dWeUxXTmhNSUlDSWpBTkJna3Foa2lHCjl3MEJBUUVGQUFPQ0FnOEFNSUlDQ2dLQ0FnRUF2VWFENUtEYU41dUdiazFBc0ptaW55eFN4SlNTVWpBSHYvWjgKTzczeUNidUoxT2l1QkIvT1JKRGU2YmtZZ2xxMFcrUGM2alo0eW95M0FaNnpDeG93MVllNUgxNGRtZjNVQ09XaQpHVTZzWktuSFBkcnJJYlRVL01CZUxMVGYrRWt3WW5YWnJDNW1tTUw4dm9QZktzMGhJby9xcldpMmNmWFMraWhKCmZWV3lBUDR3UmFBcXBMNVFUalF0MFEwNEpra0E1ZU9oY1Bza0NjOG1DV0NxL3JoRlZ4VHY3ZFhyeWhYaDIrK3oKN0NoTkl1L1I1OFFPZ3A0MHowT05FZUl6WGgrSE95Y2trcHFiaFBTZmhEUUVNY3Rjcll2WDA1b0dKY1YzdTdzRQo3c3hoZW90TVFpQkY1VzlZZkhRY3p5ekx4bmREazBGWUg1YktrOEhyUkxGQU10YjhUZjJuUFlZZmZOMUhoaFpOCm84bEphMGFYN3BWWVd3TDVBNnJBUlJwRytvUjg5SHVUYkF6QmRlRW0wZDlNTVNzZGNnajA1ZUhnTjhZc1lQa1EKWklpNnFkMEQ2dFNnQlpUTHhhZ2NmQU1XN1IrVFhGKzJPVU1ZMXdvM3ZTSk5jeWNEU1pnK2FlVHA2aHBsL1BUUQpXSWlJTmtNQ2JPU0RkdTRLVnVSdmN0VkEzZGtzeGxtZkJrK2dvTllKajBaQ0ZTY0xOb2JqMVRRMjQ3M1lFcTUwCnlYR2UxbDBPYzB4TWJDK0JIRnJpUHRXdE1QaWJZaHliV1dyN3JlNElmY054VXArd1ZPYXdhekhLK0VBMGpLMS8KZXp3ZTlZM0NYc0xxQzFnc2xXcWx2N1Y3dk5waTR3WEE1MHBFaVpvc0JzQlAycWtvOVhBTDBuakVjWHUzaE5lZApsc2JKRWtjQ0F3RUFBYU5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3CkhRWURWUjBPQkJZRUZJUFVtcHp6eFBnWWJYelNRU1ZXaTN3QitLM29NQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUMKQVFDaFI2RTFpYTZPQnljbVlkWmxjN3VqMDIvaTJ3WHdMeEtVdWFGOTFtblk4Snk1YWM4TmsvZUNDTU5aWHRHUgpDMUJnR21SU2h4Ukx6NHpvMUUrM0RuNU16eGZtUkN6OGthcVR0bDlwZEQxQk1FTnN3Rk1pd3VSM0VVNE5vTGppCnVFNXo1T2c2NU5KekVINUtvK0dHYlcyc1BYUkh6dTl4WGRodlZINlJCbTZSRU04TG9ZU2UyM2diczhGRWhkUmsKanpJYnBhcGxvb29VYjg0NGRJT1k5dy9kSHRiZ0xFZ0JYWE9zZkFSZTdOYTFpNEpqR2tJU3BFd0Fnb1B6dllrMQo5Y3VPZGYrOFdOMVJkTWk3cVE4RXgxcVJlWjBnSnFRaVFEUXJ0SG9YL3hsMllUVVRwU0w5UWxRTWVjUjVOSFF6CmlQVDZjSUlmUHZuNXJnZG14UkVOUUdybTJNZnlVdFZBVU9odk13UnZwYXlyMGw3MDgxRGFpblNZL0tDMlNZQ0wKVm9hSGZFQ3NmWC9ET1ZqNGtjd3VNVVlXdWxRcjlrWWZuWXF0Vm9yTjl3b0M5Y2p2MlhsMlAxQlJod0VaejFvYQovMmhuaytweTdLcTkwK2ZtdGJFaDVRNUVKOE4yRGY2UmxNaFB2TWpzYmJUd1RDRmNaZVc0dTlxVTN1TFVPZ1lXCmtOc1p6YVZXdmZQVWxSdW4wOUNXazFtcUhjV3Z1d05NMGxiem1WVWV6QUN3a2c0eXl1aHZJV3Q3ZDVEZVFXV04KcWpub21RQStXa1p0NHNsaHR0cDRQemZ0ZVc5bEVZcWFTaVVncldkNFM0WGY0aXJFekhpdEh5VHlNeHZSbGVCMwpHRytvQmExU1VKajZ4QWZObFRvNU1HdG9QMTRqSDhuZU54Rk5IQk9EVjBtVmNRPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    service:
+      name: gatekeeper-webhook-service
+      namespace: gatekeeper-system
+      path: /v1/admit
+      port: 443
+  failurePolicy: Ignore
+  matchPolicy: Exact
+  name: validation.gatekeeper.sh
+  namespaceSelector:
+    matchExpressions:
+    - key: control-plane
+      operator: DoesNotExist
+    - key: admission.gatekeeper.sh/ignore
+      operator: DoesNotExist
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - '*'
+    apiVersions:
+    - '*'
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - '*'
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 3
+- admissionReviewVersions:
+  - v1beta1
+  clientConfig:
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUUvakNDQXVhZ0F3SUJBZ0lRWXVrSHI4YzRJUEdMWkpuMGlnMUszekFOQmdrcWhraUc5dzBCQVFzRkFEQVkKTVJZd0ZBWURWUVFERXcxbllYUmxhMlZsY0dWeUxXTmhNQ0FYRFRJeE1ETXhNVEExTURRd04xb1lEekl3TlRFdwpNekV4TURVeE5EQTNXakFZTVJZd0ZBWURWUVFERXcxbllYUmxhMlZsY0dWeUxXTmhNSUlDSWpBTkJna3Foa2lHCjl3MEJBUUVGQUFPQ0FnOEFNSUlDQ2dLQ0FnRUF2VWFENUtEYU41dUdiazFBc0ptaW55eFN4SlNTVWpBSHYvWjgKTzczeUNidUoxT2l1QkIvT1JKRGU2YmtZZ2xxMFcrUGM2alo0eW95M0FaNnpDeG93MVllNUgxNGRtZjNVQ09XaQpHVTZzWktuSFBkcnJJYlRVL01CZUxMVGYrRWt3WW5YWnJDNW1tTUw4dm9QZktzMGhJby9xcldpMmNmWFMraWhKCmZWV3lBUDR3UmFBcXBMNVFUalF0MFEwNEpra0E1ZU9oY1Bza0NjOG1DV0NxL3JoRlZ4VHY3ZFhyeWhYaDIrK3oKN0NoTkl1L1I1OFFPZ3A0MHowT05FZUl6WGgrSE95Y2trcHFiaFBTZmhEUUVNY3Rjcll2WDA1b0dKY1YzdTdzRQo3c3hoZW90TVFpQkY1VzlZZkhRY3p5ekx4bmREazBGWUg1YktrOEhyUkxGQU10YjhUZjJuUFlZZmZOMUhoaFpOCm84bEphMGFYN3BWWVd3TDVBNnJBUlJwRytvUjg5SHVUYkF6QmRlRW0wZDlNTVNzZGNnajA1ZUhnTjhZc1lQa1EKWklpNnFkMEQ2dFNnQlpUTHhhZ2NmQU1XN1IrVFhGKzJPVU1ZMXdvM3ZTSk5jeWNEU1pnK2FlVHA2aHBsL1BUUQpXSWlJTmtNQ2JPU0RkdTRLVnVSdmN0VkEzZGtzeGxtZkJrK2dvTllKajBaQ0ZTY0xOb2JqMVRRMjQ3M1lFcTUwCnlYR2UxbDBPYzB4TWJDK0JIRnJpUHRXdE1QaWJZaHliV1dyN3JlNElmY054VXArd1ZPYXdhekhLK0VBMGpLMS8KZXp3ZTlZM0NYc0xxQzFnc2xXcWx2N1Y3dk5waTR3WEE1MHBFaVpvc0JzQlAycWtvOVhBTDBuakVjWHUzaE5lZApsc2JKRWtjQ0F3RUFBYU5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCL3dRRk1BTUJBZjh3CkhRWURWUjBPQkJZRUZJUFVtcHp6eFBnWWJYelNRU1ZXaTN3QitLM29NQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUMKQVFDaFI2RTFpYTZPQnljbVlkWmxjN3VqMDIvaTJ3WHdMeEtVdWFGOTFtblk4Snk1YWM4TmsvZUNDTU5aWHRHUgpDMUJnR21SU2h4Ukx6NHpvMUUrM0RuNU16eGZtUkN6OGthcVR0bDlwZEQxQk1FTnN3Rk1pd3VSM0VVNE5vTGppCnVFNXo1T2c2NU5KekVINUtvK0dHYlcyc1BYUkh6dTl4WGRodlZINlJCbTZSRU04TG9ZU2UyM2diczhGRWhkUmsKanpJYnBhcGxvb29VYjg0NGRJT1k5dy9kSHRiZ0xFZ0JYWE9zZkFSZTdOYTFpNEpqR2tJU3BFd0Fnb1B6dllrMQo5Y3VPZGYrOFdOMVJkTWk3cVE4RXgxcVJlWjBnSnFRaVFEUXJ0SG9YL3hsMllUVVRwU0w5UWxRTWVjUjVOSFF6CmlQVDZjSUlmUHZuNXJnZG14UkVOUUdybTJNZnlVdFZBVU9odk13UnZwYXlyMGw3MDgxRGFpblNZL0tDMlNZQ0wKVm9hSGZFQ3NmWC9ET1ZqNGtjd3VNVVlXdWxRcjlrWWZuWXF0Vm9yTjl3b0M5Y2p2MlhsMlAxQlJod0VaejFvYQovMmhuaytweTdLcTkwK2ZtdGJFaDVRNUVKOE4yRGY2UmxNaFB2TWpzYmJUd1RDRmNaZVc0dTlxVTN1TFVPZ1lXCmtOc1p6YVZXdmZQVWxSdW4wOUNXazFtcUhjV3Z1d05NMGxiem1WVWV6QUN3a2c0eXl1aHZJV3Q3ZDVEZVFXV04KcWpub21RQStXa1p0NHNsaHR0cDRQemZ0ZVc5bEVZcWFTaVVncldkNFM0WGY0aXJFekhpdEh5VHlNeHZSbGVCMwpHRytvQmExU1VKajZ4QWZObFRvNU1HdG9QMTRqSDhuZU54Rk5IQk9EVjBtVmNRPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    service:
+      name: gatekeeper-webhook-service
+      namespace: gatekeeper-system
+      path: /v1/admitlabel
+      port: 443
+  failurePolicy: Ignore
+  matchPolicy: Exact
+  name: check-ignore-label.gatekeeper.sh
+  namespaceSelector:
+    matchExpressions:
+    - key: control-plane
+      operator: DoesNotExist
+  objectSelector: {}
+  rules:
+  - apiGroups:
+    - ""
+    apiVersions:
+    - '*'
+    operations:
+    - CREATE
+    - UPDATE
+    resources:
+    - namespaces
+    scope: '*'
+  sideEffects: None
+  timeoutSeconds: 3

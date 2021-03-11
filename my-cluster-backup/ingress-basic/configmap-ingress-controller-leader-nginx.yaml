@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  annotations:
+    control-plane.alpha.kubernetes.io/leader: '{"holderIdentity":"nginx-ingress-ingress-nginx-controller-6878b74896-qdwt6","leaseDurationSeconds":30,"acquireTime":"2021-03-10T07:06:35Z","renewTime":"2021-03-11T08:40:26Z","leaderTransitions":0}'
+  creationTimestamp: "2021-03-10T07:06:35Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:control-plane.alpha.kubernetes.io/leader: {}
+    manager: nginx-ingress-controller
+    operation: Update
+    time: "2021-03-10T07:06:35Z"
+  name: ingress-controller-leader-nginx
+  namespace: ingress-basic

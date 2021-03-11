@@ -1,0 +1,43 @@
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  annotations:
+    meta.helm.sh/release-name: kube-backups
+    meta.helm.sh/release-namespace: default
+  creationTimestamp: "2021-03-11T07:18:07Z"
+  labels:
+    app: katafygio
+    app.kubernetes.io/managed-by: Helm
+    chart: katafygio-0.5.1
+    heritage: Helm
+    release: kube-backups
+  managedFields:
+  - apiVersion: rbac.authorization.k8s.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:meta.helm.sh/release-name: {}
+          f:meta.helm.sh/release-namespace: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:app.kubernetes.io/managed-by: {}
+          f:chart: {}
+          f:heritage: {}
+          f:release: {}
+      f:rules: {}
+    manager: Go-http-client
+    operation: Update
+    time: "2021-03-11T07:18:07Z"
+  name: kube-backups-katafygio
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - '*'
+  verbs:
+  - get
+  - list
+  - watch

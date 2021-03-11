@@ -1,0 +1,85 @@
+addressType: IPv4
+apiVersion: discovery.k8s.io/v1beta1
+endpoints:
+- addresses:
+  - 10.2.1.122
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: nginx-ingress-ingress-nginx-controller-6878b74896-c8p4p
+    namespace: ingress-basic
+    resourceVersion: "9696"
+    uid: 44f42856-8526-4829-ac4f-4853e44b0206
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+- addresses:
+  - 10.2.1.116
+  conditions:
+    ready: true
+  targetRef:
+    kind: Pod
+    name: nginx-ingress-ingress-nginx-controller-6878b74896-qdwt6
+    namespace: ingress-basic
+    resourceVersion: "9686"
+    uid: 93af0cbd-70eb-49ce-bea1-562473d8111c
+  topology:
+    kubernetes.io/hostname: aks-agentpool-38943226-vmss000000
+    topology.kubernetes.io/region: eastasia
+    topology.kubernetes.io/zone: "0"
+kind: EndpointSlice
+metadata:
+  annotations:
+    endpoints.kubernetes.io/last-change-trigger-time: "2021-03-10T07:06:45Z"
+  creationTimestamp: "2021-03-10T07:06:19Z"
+  generateName: nginx-ingress-ingress-nginx-controller-
+  labels:
+    endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+    kubernetes.io/service-name: nginx-ingress-ingress-nginx-controller
+  managedFields:
+  - apiVersion: discovery.k8s.io/v1beta1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:addressType: {}
+      f:endpoints: {}
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:endpoints.kubernetes.io/last-change-trigger-time: {}
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:endpointslice.kubernetes.io/managed-by: {}
+          f:kubernetes.io/service-name: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"67a9aa6b-4a7d-440d-b3e6-645b3e032a7e"}:
+            .: {}
+            f:apiVersion: {}
+            f:blockOwnerDeletion: {}
+            f:controller: {}
+            f:kind: {}
+            f:name: {}
+            f:uid: {}
+      f:ports: {}
+    manager: kube-controller-manager
+    operation: Update
+    time: "2021-03-10T07:06:44Z"
+  name: nginx-ingress-ingress-nginx-controller-jtswh
+  namespace: ingress-basic
+  ownerReferences:
+  - apiVersion: v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Service
+    name: nginx-ingress-ingress-nginx-controller
+    uid: 67a9aa6b-4a7d-440d-b3e6-645b3e032a7e
+ports:
+- name: https
+  port: 443
+  protocol: TCP
+- name: http
+  port: 80
+  protocol: TCP

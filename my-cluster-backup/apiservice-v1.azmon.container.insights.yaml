@@ -1,0 +1,12 @@
+apiVersion: apiregistration.k8s.io/v1beta1
+kind: APIService
+metadata:
+  creationTimestamp: "2021-03-10T06:00:46Z"
+  labels:
+    kube-aggregator.kubernetes.io/automanaged: "true"
+  name: v1.azmon.container.insights
+spec:
+  group: azmon.container.insights
+  groupPriorityMinimum: 1000
+  version: v1
+  versionPriority: 100

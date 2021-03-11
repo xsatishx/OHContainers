@@ -1,0 +1,48 @@
+apiVersion: events.k8s.io/v1beta1
+deprecatedCount: 303
+deprecatedFirstTimestamp: "2021-03-11T07:18:48Z"
+deprecatedLastTimestamp: "2021-03-11T08:28:57Z"
+deprecatedSource:
+  component: kubelet
+  host: aks-openhacknp-38943226-vmss000000
+eventTime: null
+kind: Event
+metadata:
+  creationTimestamp: "2021-03-11T07:18:48Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:count: {}
+      f:firstTimestamp: {}
+      f:involvedObject:
+        f:apiVersion: {}
+        f:fieldPath: {}
+        f:kind: {}
+        f:name: {}
+        f:namespace: {}
+        f:resourceVersion: {}
+        f:uid: {}
+      f:lastTimestamp: {}
+      f:message: {}
+      f:reason: {}
+      f:source:
+        f:component: {}
+        f:host: {}
+      f:type: {}
+    manager: kubelet
+    operation: Update
+    time: "2021-03-11T07:18:48Z"
+  name: kube-backups-katafygio-589c856454-vwnws.166b389a9b76532e
+  namespace: default
+note: Back-off pulling image "bpineau/katafygio:v0.8.3"
+reason: BackOff
+regarding:
+  apiVersion: v1
+  fieldPath: spec.containers{katafygio}
+  kind: Pod
+  name: kube-backups-katafygio-589c856454-vwnws
+  namespace: default
+  resourceVersion: "222647"
+  uid: 0077032c-e083-4470-8bb3-99a826ba4a48
+type: Normal

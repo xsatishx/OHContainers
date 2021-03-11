@@ -1,0 +1,44 @@
+apiVersion: events.k8s.io/v1beta1
+deprecatedCount: 1
+deprecatedFirstTimestamp: "2021-03-11T08:40:06Z"
+deprecatedLastTimestamp: "2021-03-11T08:40:06Z"
+deprecatedSource:
+  component: default-scheduler
+eventTime: null
+kind: Event
+metadata:
+  creationTimestamp: "2021-03-11T08:40:06Z"
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:count: {}
+      f:firstTimestamp: {}
+      f:involvedObject:
+        f:apiVersion: {}
+        f:kind: {}
+        f:name: {}
+        f:namespace: {}
+        f:resourceVersion: {}
+        f:uid: {}
+      f:lastTimestamp: {}
+      f:message: {}
+      f:reason: {}
+      f:source:
+        f:component: {}
+      f:type: {}
+    manager: kube-scheduler
+    operation: Update
+    time: "2021-03-11T08:40:06Z"
+  name: kube-backups-katafygio-589c856454-wg6hk.166b3d0a88717ce8
+  namespace: default
+note: Successfully assigned default/kube-backups-katafygio-589c856454-wg6hk to aks-openhacknp-38943226-vmss000001
+reason: Scheduled
+regarding:
+  apiVersion: v1
+  kind: Pod
+  name: kube-backups-katafygio-589c856454-wg6hk
+  namespace: default
+  resourceVersion: "235203"
+  uid: 48e5d593-8ff9-4b14-8688-8d6db2b0a758
+type: Normal
